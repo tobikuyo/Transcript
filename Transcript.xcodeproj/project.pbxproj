@@ -22,6 +22,8 @@
 		2C868E9A247DC37C0045D1AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C868E9D247DC37C0045D1AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C868E9F247DC37C0045D1AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C868EAC247DCF560045D1AA /* ScriptTagsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTagsCollectionViewController.swift; sourceTree = "<group>"; };
+		2C868EAF247DD06B0045D1AA /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				2C868EA9247DC4680045D1AA /* Views */,
 				2C868EA8247DC45C0045D1AA /* Model Controllers */,
 				2C868EA7247DC44C0045D1AA /* View Controllers */,
+				2C868EAE247DD0430045D1AA /* Resources */,
 			);
 			path = Transcript;
 			sourceTree = "<group>";
@@ -110,6 +113,14 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2C868EAE247DD0430045D1AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C868EAF247DD06B0045D1AA /* Identifiers.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
