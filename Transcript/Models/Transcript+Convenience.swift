@@ -11,23 +11,18 @@ import CoreData
 
 extension Transcript {
     @discardableResult convenience init(transcriptTitle: String,
-                                        transcript: String,
+                                        text: String,
                                         category: Category,
                                         duration: TimeInterval,
                                         currentTime: TimeInterval,
                                         recordingURL: URL,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-
-        guard let urlString = try? String(contentsOf: recordingURL) else {
-            fatalError("Error with recording URL")
-        }
-
         self.init(context: context)
         self.transcriptTitle = transcriptTitle
-        self.transcript = transcript
+        self.text = text
         self.category = category.rawValue
         self.duration = duration
         self.currentTime = currentTime
-        self.recordingURL = urlString
+        self.recordingURL = "\(recordingURL)"
     }
 }

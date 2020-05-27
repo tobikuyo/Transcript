@@ -26,6 +26,7 @@
 		2CAEB8A9247EBA47009C5DC7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */; };
 		2CAEB8AB247EBB19009C5DC7 /* Transcript+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AA247EBB19009C5DC7 /* Transcript+Convenience.swift */; };
 		2CAEB8AD247EBC25009C5DC7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AC247EBC25009C5DC7 /* Category.swift */; };
+		2CAEB8AF247EC219009C5DC7 /* TranscriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AE247EC219009C5DC7 /* TranscriptController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2CAEB8AA247EBB19009C5DC7 /* Transcript+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transcript+Convenience.swift"; sourceTree = "<group>"; };
 		2CAEB8AC247EBC25009C5DC7 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		2CAEB8AE247EC219009C5DC7 /* TranscriptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		2C868EA8247DC45C0045D1AA /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CAEB8AE247EC219009C5DC7 /* TranscriptController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				2C868EB0247DD06B0045D1AA /* Identifier.swift in Sources */,
 				2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */,
 				2CAEB87E247EB3FA009C5DC7 /* Transcripts.xcdatamodeld in Sources */,
+				2CAEB8AF247EC219009C5DC7 /* TranscriptController.swift in Sources */,
 				2C868E94247DC37B0045D1AA /* SceneDelegate.swift in Sources */,
 				2CAEB8AD247EBC25009C5DC7 /* Category.swift in Sources */,
 			);
