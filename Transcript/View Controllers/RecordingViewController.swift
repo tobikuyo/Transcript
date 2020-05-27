@@ -21,8 +21,8 @@ class RecordingViewController: UIViewController {
     // MARK: - Properties
 
     private let audioEngine = AVAudioEngine()
-    private let request = SFSpeechAudioBufferRecognitionRequest()
     private let speechRecognizer = SFSpeechRecognizer()
+    private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private var audioRecorder: AVAudioRecorder?
 
@@ -51,7 +51,7 @@ class RecordingViewController: UIViewController {
             requestAuthorization()
             transcriptTextView.text = ""
         } else {
-            audioEngine.stop()
+            stopSpeechRecognition()
         }
     }
 
@@ -67,11 +67,14 @@ class RecordingViewController: UIViewController {
     }
 
     private func recordAndTranscribe() {
+        prepareAudioSession()
+        request = SFSpeechAudioBufferRecognitionRequest()
+
         let recordingURL = createNewRecordingURL()
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
-            self.request.append(buffer)
+            self.request?.append(buffer)
         }
 
         audioEngine.prepare()
@@ -83,19 +86,42 @@ class RecordingViewController: UIViewController {
         }
 
         guard
+            let request = request,
             let speechRecognizer = speechRecognizer,
             speechRecognizer.isAvailable else { return }
 
         recognitionTask = speechRecognizer.recognitionTask(with: request, resultHandler: { result, error in
-            if let error = error {
-                NSLog("Error recognising speech: \(error)")
-            } else if let result = result {
+            if let result = result {
                 let transcriptText = result.bestTranscription.formattedString
                 self.transcriptText = transcriptText
                 self.transcriptTextView.text = transcriptText
                 self.recordingURL = recordingURL
+            } else if let error = error {
+                NSLog("Error recognising speech: \(error)")
             }
         })
+    }
+
+    private func stopSpeechRecognition() {
+        audioEngine.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
+
+        request?.endAudio()
+        request = nil
+
+        recognitionTask?.cancel()
+        recognitionTask = nil
+    }
+
+    private func prepareAudioSession() {
+        let audioSession = AVAudioSession.sharedInstance()
+
+        do {
+            try audioSession.setCategory(.record, mode: .measurement, options: [.defaultToSpeaker])
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            NSLog("An error has occurred while setting the AVAudioSession: \(error)")
+        }
     }
 
     private func createNewRecordingURL() -> URL {
@@ -108,7 +134,7 @@ class RecordingViewController: UIViewController {
 
     private func updateViews() {
         recordButton.layer.cornerRadius = 45
-        transcriptTextView.text = "Ready when you are..."
+        transcriptTextView.text = "(Go ahead, I'm listening)"
         transcriptTextView.font = UIFont(name: "Caudex", size: 18)
         transcriptTextView.textColor = .darkGray
     }
