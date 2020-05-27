@@ -17,11 +17,9 @@ class TranscriptController {
     func createTranscript(title: String,
                           text: String,
                           category: Category,
-                          duration: TimeInterval,
-                          currentTime: TimeInterval,
                           recordingURL: URL) {
 
-        let transcript = Transcript(transcriptTitle: title, text: text, category: category, duration: duration, currentTime: currentTime, recordingURL: recordingURL)
+        let transcript = Transcript(transcriptTitle: title, text: text, category: category, recordingURL: recordingURL)
 
         transcripts.append(transcript)
         CoreDataStack.shared.save()
@@ -37,8 +35,6 @@ class TranscriptController {
         transcript.transcriptTitle = title
         transcript.text = text
         transcript.category = category.rawValue
-        transcript.duration = duration
-        transcript.currentTime = currentTime
         transcript.recordingURL = "\(recordingURL)"
 
         CoreDataStack.shared.save()

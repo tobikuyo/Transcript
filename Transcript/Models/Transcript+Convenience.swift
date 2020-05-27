@@ -13,16 +13,14 @@ extension Transcript {
     @discardableResult convenience init(transcriptTitle: String,
                                         text: String,
                                         category: Category,
-                                        duration: TimeInterval,
-                                        currentTime: TimeInterval,
                                         recordingURL: URL,
+                                        dateCreated: Date = Date(),
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.transcriptTitle = transcriptTitle
         self.text = text
         self.category = category.rawValue
-        self.duration = duration
-        self.currentTime = currentTime
         self.recordingURL = "\(recordingURL)"
+        self.dateCreated = dateCreated
     }
 }
