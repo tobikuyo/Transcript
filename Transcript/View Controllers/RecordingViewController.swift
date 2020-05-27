@@ -20,22 +20,54 @@ class RecordingViewController: UIViewController {
 
     // MARK: - Properties
 
-    let audioEngine = AVAudioEngine()
-    let request = SFSpeechAudioBufferRecognitionRequest()
+    private let audioEngine = AVAudioEngine()
+    private let request = SFSpeechAudioBufferRecognitionRequest()
+    private let speechRecognizer = SFSpeechRecognizer()
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private var audioRecorder: AVAudioRecorder?
 
-    let speechRecognizer = SFSpeechRecognizer()
-    var recognitionTask: SFSpeechRecognitionTask?
+    var trancriptController: TranscriptController?
+    var transcriptTitle: String?
+    var transcriptText: String?
+    var recordingURL: URL?
 
-    // MARK: View Lifecycle
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
+    }
 
+    // MARK: - IBActions
+
+    @IBAction func saveTranscript(_ sender: Any) {
+
+    }
+
+    @IBAction func recordButtonTapped(_ sender: Any) {
+        recordButton.isSelected.toggle()
+
+        if recordButton.isSelected {
+            requestAuthorization()
+            transcriptTextView.text = ""
+        } else {
+            audioEngine.stop()
+        }
     }
 
     // MARK: - Methods
 
-    func recordAndTranscribe() {
+    private func requestAuthorization() {
+        SFSpeechRecognizer.requestAuthorization { [weak self] status in
+            guard let self = self else { return }
+            if status == .authorized {
+                self.recordAndTranscribe()
+            }
+        }
+    }
+
+    private func recordAndTranscribe() {
+        let recordingURL = createNewRecordingURL()
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
@@ -47,7 +79,7 @@ class RecordingViewController: UIViewController {
         do {
             try audioEngine.start()
         } catch {
-            print("Error: \(error)")
+            NSLog("Error processing speedch: \(error)")
         }
 
         guard
@@ -58,19 +90,26 @@ class RecordingViewController: UIViewController {
             if let error = error {
                 NSLog("Error recognising speech: \(error)")
             } else if let result = result {
-                let transcript = result.bestTranscription.formattedString
-                self.transcriptTextView.text = transcript
+                let transcriptText = result.bestTranscription.formattedString
+                self.transcriptText = transcriptText
+                self.transcriptTextView.text = transcriptText
+                self.recordingURL = recordingURL
             }
         })
     }
 
-    // MARK: - IBActions
+    private func createNewRecordingURL() -> URL {
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let name = ISO8601DateFormatter.string(from: Date(), timeZone: .current, formatOptions: .withInternetDateTime)
+        let file = documents.appendingPathComponent(name, isDirectory: false).appendingPathExtension("caf")
 
-    @IBAction func recordButtonTapped(_ sender: Any) {
-        recordButton.isSelected.toggle()
+        return file
+    }
 
-        if recordButton.isSelected {
-            recordAndTranscribe()
-        } 
+    private func updateViews() {
+        recordButton.layer.cornerRadius = 45
+        transcriptTextView.text = "Ready when you are..."
+        transcriptTextView.font = UIFont(name: "Caudex", size: 18)
+        transcriptTextView.textColor = .darkGray
     }
 }
