@@ -60,5 +60,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to use your micrphone.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to transcribe your speech into text.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Caudex-Regular.ttf</string>
+		<string>Caudex-Bold.ttf</string>
+		<string>Play-Regular.ttf</string>
+		<string>Play-Bold.ttf</string>
+	</array>
 </dict>
 </plist>
