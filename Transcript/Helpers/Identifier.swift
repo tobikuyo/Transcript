@@ -9,9 +9,9 @@
 import Foundation
 
 class Identifier {
-    static let showScripts = "ShowScriptsSegue"
-    static let addScript = "AddScriptSegue"
+    static let showScripts  = "ShowScriptsSegue"
+    static let addScript    = "AddScriptSegue"
     static let scriptDetail = "ScriptDetailSegue"
-    static let tagCell = "TagCell"
-    static let scriptCell = "ScriptCell"
+    static let tagCell      = "TagCell"
+    static let scriptCell   = "ScriptCell"
 }

@@ -16,7 +16,7 @@ class TranscriptController {
 
     func createTranscript(title: String,
                           text: String,
-                          category: Category,
+                          category: TranscriptCategory,
                           recordingURL: URL) {
 
         let transcript = Transcript(transcriptTitle: title, text: text, category: category, recordingURL: recordingURL)
@@ -28,9 +28,7 @@ class TranscriptController {
     func updateTranscript(_ transcript: Transcript,
                           title: String,
                           text: String,
-                          category: Category,
-                          duration: TimeInterval,
-                          currentTime: TimeInterval,
+                          category: TranscriptCategory,
                           recordingURL: URL) {
         transcript.transcriptTitle = title
         transcript.text = text

@@ -12,7 +12,7 @@ import CoreData
 extension Transcript {
     @discardableResult convenience init(transcriptTitle: String,
                                         text: String,
-                                        category: Category,
+                                        category: TranscriptCategory,
                                         recordingURL: URL,
                                         dateCreated: Date = Date(),
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
