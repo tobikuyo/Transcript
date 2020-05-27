@@ -24,6 +24,8 @@
 		2CAEB87B247E9F8A009C5DC7 /* Caudex-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB879247E9F8A009C5DC7 /* Caudex-Regular.ttf */; };
 		2CAEB87E247EB3FA009C5DC7 /* Transcripts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB87C247EB3FA009C5DC7 /* Transcripts.xcdatamodeld */; };
 		2CAEB8A9247EBA47009C5DC7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */; };
+		2CAEB8AB247EBB19009C5DC7 /* Transcript+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AA247EBB19009C5DC7 /* Transcript+Convenience.swift */; };
+		2CAEB8AD247EBC25009C5DC7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AC247EBC25009C5DC7 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		2CAEB879247E9F8A009C5DC7 /* Caudex-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Regular.ttf"; sourceTree = "<group>"; };
 		2CAEB87D247EB3FA009C5DC7 /* Transcripts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transcripts.xcdatamodel; sourceTree = "<group>"; };
 		2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2CAEB8AA247EBB19009C5DC7 /* Transcript+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transcript+Convenience.swift"; sourceTree = "<group>"; };
+		2CAEB8AC247EBC25009C5DC7 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			children = (
 				2CAEB87C247EB3FA009C5DC7 /* Transcripts.xcdatamodeld */,
 				2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */,
+				2CAEB8AA247EBB19009C5DC7 /* Transcript+Convenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				2C868EAF247DD06B0045D1AA /* Identifier.swift */,
+				2CAEB8AC247EBC25009C5DC7 /* Category.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			files = (
 				2C868EB2247DD2360045D1AA /* ScriptTagCollectionViewCell.swift in Sources */,
 				2C868EB4247DD2F50045D1AA /* ScriptsTableViewController.swift in Sources */,
+				2CAEB8AB247EBB19009C5DC7 /* Transcript+Convenience.swift in Sources */,
 				2C868E92247DC37B0045D1AA /* AppDelegate.swift in Sources */,
 				2C868EAD247DCF560045D1AA /* ScriptTagsCollectionViewController.swift in Sources */,
 				2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */,
@@ -249,6 +256,7 @@
 				2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */,
 				2CAEB87E247EB3FA009C5DC7 /* Transcripts.xcdatamodeld in Sources */,
 				2C868E94247DC37B0045D1AA /* SceneDelegate.swift in Sources */,
+				2CAEB8AD247EBC25009C5DC7 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
