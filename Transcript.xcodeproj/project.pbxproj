@@ -12,6 +12,12 @@
 		2C868E99247DC37B0045D1AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C868E97247DC37B0045D1AA /* Main.storyboard */; };
 		2C868E9B247DC37C0045D1AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C868E9A247DC37C0045D1AA /* Assets.xcassets */; };
 		2C868E9E247DC37C0045D1AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C868E9C247DC37C0045D1AA /* LaunchScreen.storyboard */; };
+		2C868EAD247DCF560045D1AA /* ScriptTagsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EAC247DCF560045D1AA /* ScriptTagsCollectionViewController.swift */; };
+		2C868EB0247DD06B0045D1AA /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EAF247DD06B0045D1AA /* Identifier.swift */; };
+		2C868EB2247DD2360045D1AA /* ScriptTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB1247DD2360045D1AA /* ScriptTagCollectionViewCell.swift */; };
+		2C868EB4247DD2F50045D1AA /* ScriptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */; };
+		2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */; };
+		2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +29,11 @@
 		2C868E9D247DC37C0045D1AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C868E9F247DC37C0045D1AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C868EAC247DCF560045D1AA /* ScriptTagsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTagsCollectionViewController.swift; sourceTree = "<group>"; };
-		2C868EAF247DD06B0045D1AA /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		2C868EAF247DD06B0045D1AA /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		2C868EB1247DD2360045D1AA /* ScriptTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableViewController.swift; sourceTree = "<group>"; };
+		2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciptDetailViewController.swift; sourceTree = "<group>"; };
+		2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +100,10 @@
 		2C868EA7247DC44C0045D1AA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C868EAC247DCF560045D1AA /* ScriptTagsCollectionViewController.swift */,
+				2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */,
+				2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */,
+				2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -104,6 +118,7 @@
 		2C868EA9247DC4680045D1AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2C868EB1247DD2360045D1AA /* ScriptTagCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,7 +133,7 @@
 		2C868EAE247DD0430045D1AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2C868EAF247DD06B0045D1AA /* Identifiers.swift */,
+				2C868EAF247DD06B0045D1AA /* Identifier.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,7 +209,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C868EB2247DD2360045D1AA /* ScriptTagCollectionViewCell.swift in Sources */,
+				2C868EB4247DD2F50045D1AA /* ScriptsTableViewController.swift in Sources */,
 				2C868E92247DC37B0045D1AA /* AppDelegate.swift in Sources */,
+				2C868EAD247DCF560045D1AA /* ScriptTagsCollectionViewController.swift in Sources */,
+				2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */,
+				2C868EB0247DD06B0045D1AA /* Identifier.swift in Sources */,
+				2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */,
 				2C868E94247DC37B0045D1AA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

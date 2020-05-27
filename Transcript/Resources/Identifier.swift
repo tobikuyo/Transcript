@@ -1,5 +1,5 @@
 //
-//  Identifiers.swift
+//  Identifier.swift
 //  Transcript
 //
 //  Created by Tobi Kuyoro on 26/05/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Identifiers {
+class Identifier {
     static let showScripts = "ShowScriptsSegue"
     static let addScript = "AddScriptSegue"
     static let scriptDetail = "ScriptDetailSegue"

@@ -11,7 +11,7 @@
         <!--Tags-->
         <scene sceneID="nAo-d7-y10">
             <objects>
-                <collectionViewController id="ten-wk-5xr" sceneMemberID="viewController">
+                <collectionViewController id="ten-wk-5xr" customClass="ScriptTagsCollectionViewController" customModule="Transcript" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="TcU-l0-Zj7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                             <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IpL-bf-Tbo">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="IpL-bf-Tbo" customClass="ScriptTagCollectionViewCell" customModule="Transcript" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="180" height="265"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sbF-eh-WMs">
@@ -37,7 +37,8 @@
                                     </subviews>
                                 </collectionViewCellContentView>
                                 <connections>
-                                    <segue destination="wTD-PG-M2C" kind="show" id="Syc-DA-WDv"/>
+                                    <outlet property="imageView" destination="l3K-yz-9hJ" id="xMd-E6-XKR"/>
+                                    <segue destination="wTD-PG-M2C" kind="show" identifier="ShowScriptsSegue" id="Syc-DA-WDv"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -49,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Tags" id="pl8-w5-Rw3">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nTS-Ef-JId">
                             <connections>
-                                <segue destination="88O-wP-Zew" kind="show" id="0Ad-B9-hgJ"/>
+                                <segue destination="88O-wP-Zew" kind="show" identifier="AddScriptSegue" id="0Ad-B9-hgJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -58,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="672" y="-6"/>
         </scene>
-        <!--View Controller-->
+        <!--Scripts Table View Controller-->
         <scene sceneID="CM6-KC-8vR">
             <objects>
-                <viewController id="wTD-PG-M2C" sceneMemberID="viewController">
+                <viewController id="wTD-PG-M2C" customClass="ScriptsTableViewController" customModule="Transcript" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Om-lJ-oom">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +76,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bRu-s4-m2W" style="IBUITableViewCellStyleDefault" id="myA-oZ-4l6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScriptCell" textLabel="bRu-s4-m2W" style="IBUITableViewCellStyleDefault" id="myA-oZ-4l6">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="myA-oZ-4l6" id="OAs-0x-JjW">
@@ -92,35 +93,45 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2Mr-gW-tzb" kind="show" id="sQL-Jv-hwm"/>
+                                            <segue destination="2Mr-gW-tzb" kind="show" identifier="ScriptDetailSegue" id="sQL-Jv-hwm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYg-1P-Dsr">
-                                <rect key="frame" x="20" y="105" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYg-1P-Dsr">
+                                <rect key="frame" x="20" y="103" width="47" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="wTD-PG-M2C" eventType="touchUpInside" id="j1i-9V-kiE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4hx-K4-NH6"/>
                     </view>
                     <navigationItem key="navigationItem" id="6uI-s7-mFq"/>
+                    <connections>
+                        <outlet property="backButton" destination="mYg-1P-Dsr" id="gU7-4p-2lW"/>
+                        <outlet property="tableView" destination="jGP-IQ-DY4" id="ywI-iv-o3b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6WX-tQ-rHQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1478.2608695652175" y="-6.0267857142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--Recording View Controller-->
         <scene sceneID="3O9-bI-0vf">
             <objects>
-                <viewController id="88O-wP-Zew" sceneMemberID="viewController">
+                <viewController id="88O-wP-Zew" customClass="RecordingViewController" customModule="Transcript" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IQ5-gi-qTS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXO-Xx-mXu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXO-Xx-mXu">
                                 <rect key="frame" x="162" y="752" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -134,6 +145,9 @@
                                 <state key="selected" image="stop.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45"/>
                                 </state>
+                                <connections>
+                                    <action selector="recordButtonTapped:" destination="88O-wP-Zew" eventType="touchUpInside" id="sSx-gu-pE1"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wR6-aq-Dst">
                                 <rect key="frame" x="20" y="242" width="374" height="470"/>
@@ -160,6 +174,7 @@
                             <constraint firstItem="2cG-0R-kXk" firstAttribute="leading" secondItem="oIB-hU-PpQ" secondAttribute="leading" constant="20" id="A9h-7T-VR4"/>
                             <constraint firstItem="c9Q-iG-QFE" firstAttribute="leading" secondItem="oIB-hU-PpQ" secondAttribute="leading" constant="20" id="CHN-Vo-eD0"/>
                             <constraint firstItem="oIB-hU-PpQ" firstAttribute="trailing" secondItem="c9Q-iG-QFE" secondAttribute="trailing" constant="20" id="L2w-fd-Taf"/>
+                            <constraint firstItem="CXO-Xx-mXu" firstAttribute="centerX" secondItem="wR6-aq-Dst" secondAttribute="centerX" id="PVP-Xb-5tY"/>
                             <constraint firstItem="CXO-Xx-mXu" firstAttribute="top" secondItem="wR6-aq-Dst" secondAttribute="bottom" constant="40" id="Rn9-c8-arF"/>
                             <constraint firstItem="oIB-hU-PpQ" firstAttribute="bottom" secondItem="CXO-Xx-mXu" secondAttribute="bottom" constant="20" id="dxQ-Ne-MaD"/>
                             <constraint firstItem="wR6-aq-Dst" firstAttribute="top" secondItem="c9Q-iG-QFE" secondAttribute="bottom" constant="20" id="i27-S3-Veq"/>
@@ -173,15 +188,21 @@
                     <navigationItem key="navigationItem" id="2Pl-j2-Q7V">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="SWo-9J-QyH"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryTextField" destination="c9Q-iG-QFE" id="w7g-t7-xcJ"/>
+                        <outlet property="recordButton" destination="CXO-Xx-mXu" id="voO-Uw-srE"/>
+                        <outlet property="titleTextField" destination="2cG-0R-kXk" id="c8W-AM-9kj"/>
+                        <outlet property="transcriptTextView" destination="wR6-aq-Dst" id="X64-hd-z7w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OO2-YE-2qJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1476.8115942028987" y="-709.15178571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Scipt Detail View Controller-->
         <scene sceneID="yK0-cq-t4a">
             <objects>
-                <viewController id="2Mr-gW-tzb" sceneMemberID="viewController">
+                <viewController id="2Mr-gW-tzb" customClass="SciptDetailViewController" customModule="Transcript" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sli-AM-ySP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,21 +220,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAJ-D9-GHK">
-                                <rect key="frame" x="20" y="112" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAJ-D9-GHK">
+                                <rect key="frame" x="20" y="109" width="47" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="arrow.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="2Mr-gW-tzb" eventType="touchUpInside" id="Pny-ig-hZp"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiv-O1-6Tk">
-                                <rect key="frame" x="348" y="112" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiv-O1-6Tk">
+                                <rect key="frame" x="347" y="105" width="49" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="square.and.pencil" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="2Mr-gW-tzb" eventType="touchUpInside" id="xIA-Qg-jZl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="UdP-hS-Qc0"/>
                     </view>
                     <navigationItem key="navigationItem" id="WjW-9C-fRr"/>
+                    <connections>
+                        <outlet property="backButton" destination="EAJ-D9-GHK" id="Epe-WA-ZKY"/>
+                        <outlet property="imageView" destination="vf1-dh-klw" id="NVu-DR-H28"/>
+                        <outlet property="transcriptTextView" destination="XPY-lh-VEa" id="wOq-Nl-H9v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoh-6K-W4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,7 +277,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
     </resources>
 </document>
