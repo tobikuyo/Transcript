@@ -27,12 +27,10 @@ class RecordingViewController: UIViewController {
     private var audioRecorder: AVAudioRecorder?
 
     var trancriptController: TranscriptController?
-    var transcriptTitle: String?
     var transcriptText: String?
     var recordingURL: URL?
-
     var selectedCategory: String?
-    let categories = Category.allCases
+    let categories = TranscriptCategory.allCases
 
     // MARK: - View Lifecycle
 
@@ -46,7 +44,19 @@ class RecordingViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func saveTranscript(_ sender: Any) {
+        guard
+            let title = titleTextField.text,
+            let text = transcriptTextView.text,
+            let recordingURL = recordingURL,
+            let categoryText = categoryTextField.text,
+            let category = TranscriptCategory(rawValue: categoryText)
+            else {
+                missingPropertiesAlert()
+                return
+        }
 
+        trancriptController?.createTranscript(title: title, text: text, category: category, recordingURL: recordingURL)
+        navigationController?.popViewController(animated: true)
     }
 
     @IBAction func recordButtonTapped(_ sender: Any) {
@@ -72,7 +82,6 @@ class RecordingViewController: UIViewController {
     }
 
     private func recordAndTranscribe() {
-        prepareAudioSession()
         request = SFSpeechAudioBufferRecognitionRequest()
 
         let recordingURL = createNewRecordingURL()
@@ -87,7 +96,7 @@ class RecordingViewController: UIViewController {
         do {
             try audioEngine.start()
         } catch {
-            NSLog("Error processing speedch: \(error)")
+            NSLog("Error processing speech: \(error)")
         }
 
         guard
@@ -118,17 +127,6 @@ class RecordingViewController: UIViewController {
         recognitionTask = nil
     }
 
-    private func prepareAudioSession() {
-        let audioSession = AVAudioSession.sharedInstance()
-
-        do {
-            try audioSession.setCategory(.record, mode: .measurement, options: [.defaultToSpeaker])
-            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            NSLog("An error has occurred while setting the AVAudioSession: \(error)")
-        }
-    }
-
     private func createNewRecordingURL() -> URL {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let name = ISO8601DateFormatter.string(from: Date(), timeZone: .current, formatOptions: .withInternetDateTime)
@@ -146,6 +144,25 @@ class RecordingViewController: UIViewController {
         transcriptTextView.textColor = .darkGray
         titleTextField.font = UIFont(name: "Play-Regular", size: 16)
         categoryTextField.font = UIFont(name: "Play-Regular", size: 16)
+    }
+
+    private func missingPropertiesAlert() {
+        let title = titleTextField.text
+        let category = categoryTextField.text
+        
+        if title == nil && category == nil {
+            let alert = UIAlertController(title: "Missing Title and Category", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else if title == nil {
+            let alert = UIAlertController(title: "Missing Title", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else if category == nil {
+            let alert = UIAlertController(title: "Missing Category", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
 
     private func createCategoryPicker() {
