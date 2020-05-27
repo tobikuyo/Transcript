@@ -31,11 +31,16 @@ class RecordingViewController: UIViewController {
     var transcriptText: String?
     var recordingURL: URL?
 
+    var selectedCategory: String?
+    let categories = Category.allCases
+
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        createCategoryPicker()
+        createTapGesture()
     }
 
     // MARK: - IBActions
@@ -55,7 +60,7 @@ class RecordingViewController: UIViewController {
         }
     }
 
-    // MARK: - Methods
+    // MARK: - Recording Methods
 
     private func requestAuthorization() {
         SFSpeechRecognizer.requestAuthorization { [weak self] status in
@@ -132,11 +137,31 @@ class RecordingViewController: UIViewController {
         return file
     }
 
+    // MARK: View Related Methods
+
     private func updateViews() {
         recordButton.layer.cornerRadius = 45
         transcriptTextView.text = "(Go ahead, I'm listening)"
-        transcriptTextView.font = UIFont(name: "Caudex", size: 18)
+        transcriptTextView.font = UIFont(name: "Play-Regular", size: 16)
         transcriptTextView.textColor = .darkGray
+        titleTextField.font = UIFont(name: "Play-Regular", size: 16)
+        categoryTextField.font = UIFont(name: "Play-Regular", size: 16)
+    }
+
+    private func createCategoryPicker() {
+        let categoryPicker = UIPickerView()
+        categoryPicker.delegate = self
+        categoryPicker.backgroundColor = .white
+        categoryTextField.inputView = categoryPicker
+    }
+
+    private func createTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 
@@ -147,5 +172,41 @@ extension RecordingViewController: SFSpeechRecognizerDelegate {
         } else {
             recordButton.isEnabled = false
         }
+    }
+}
+
+extension RecordingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let category = categories[row].rawValue
+        return category.capitalized
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let category = categories[row].rawValue
+        selectedCategory = category
+        categoryTextField.text = selectedCategory?.capitalized
+    }
+
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let category = categories[row].rawValue
+
+        let label = UILabel()
+        label.font = UIFont (name: "Play-Regular", size: 23)
+        label.textAlignment = .center
+        label.text =  category.capitalized
+
+        return label
+    }
+
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40
     }
 }
