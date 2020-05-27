@@ -18,6 +18,10 @@
 		2C868EB4247DD2F50045D1AA /* ScriptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */; };
 		2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */; };
 		2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */; };
+		2C868EBC247DE6BD0045D1AA /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C868EBA247DE6BD0045D1AA /* Play-Bold.ttf */; };
+		2C868EBD247DE6BD0045D1AA /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C868EBB247DE6BD0045D1AA /* Play-Regular.ttf */; };
+		2C868EC0247DE7270045D1AA /* Caudex-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C868EBE247DE7260045D1AA /* Caudex-Regular.ttf */; };
+		2C868EC1247DE7270045D1AA /* Caudex-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C868EBF247DE7260045D1AA /* Caudex-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableViewController.swift; sourceTree = "<group>"; };
 		2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciptDetailViewController.swift; sourceTree = "<group>"; };
 		2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
+		2C868EBA247DE6BD0045D1AA /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
+		2C868EBB247DE6BD0045D1AA /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
+		2C868EBE247DE7260045D1AA /* Caudex-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Regular.ttf"; sourceTree = "<group>"; };
+		2C868EBF247DE7260045D1AA /* Caudex-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +141,21 @@
 		2C868EAE247DD0430045D1AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C868EB9247DE6470045D1AA /* Fonts */,
 				2C868EAF247DD06B0045D1AA /* Identifier.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2C868EB9247DE6470045D1AA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2C868EBA247DE6BD0045D1AA /* Play-Bold.ttf */,
+				2C868EBB247DE6BD0045D1AA /* Play-Regular.ttf */,
+				2C868EBF247DE7260045D1AA /* Caudex-Bold.ttf */,
+				2C868EBE247DE7260045D1AA /* Caudex-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +217,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C868E9E247DC37C0045D1AA /* LaunchScreen.storyboard in Resources */,
+				2C868EBC247DE6BD0045D1AA /* Play-Bold.ttf in Resources */,
 				2C868E9B247DC37C0045D1AA /* Assets.xcassets in Resources */,
+				2C868EC1247DE7270045D1AA /* Caudex-Bold.ttf in Resources */,
 				2C868E99247DC37B0045D1AA /* Main.storyboard in Resources */,
+				2C868EBD247DE6BD0045D1AA /* Play-Regular.ttf in Resources */,
+				2C868EC0247DE7270045D1AA /* Caudex-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
