@@ -22,6 +22,7 @@
 		2CAEB877247E9F73009C5DC7 /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB875247E9F73009C5DC7 /* Play-Bold.ttf */; };
 		2CAEB87A247E9F8A009C5DC7 /* Caudex-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB878247E9F8A009C5DC7 /* Caudex-Bold.ttf */; };
 		2CAEB87B247E9F8A009C5DC7 /* Caudex-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB879247E9F8A009C5DC7 /* Caudex-Regular.ttf */; };
+		2CAEB87E247EB3FA009C5DC7 /* Transcripts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB87C247EB3FA009C5DC7 /* Transcripts.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		2CAEB875247E9F73009C5DC7 /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		2CAEB878247E9F8A009C5DC7 /* Caudex-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Bold.ttf"; sourceTree = "<group>"; };
 		2CAEB879247E9F8A009C5DC7 /* Caudex-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Regular.ttf"; sourceTree = "<group>"; };
+		2CAEB87D247EB3FA009C5DC7 /* Transcripts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transcripts.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		2C868EAA247DC46D0045D1AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2CAEB87C247EB3FA009C5DC7 /* Transcripts.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */,
 				2C868EB0247DD06B0045D1AA /* Identifier.swift in Sources */,
 				2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */,
+				2CAEB87E247EB3FA009C5DC7 /* Transcripts.xcdatamodeld in Sources */,
 				2C868E94247DC37B0045D1AA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +442,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2CAEB87C247EB3FA009C5DC7 /* Transcripts.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2CAEB87D247EB3FA009C5DC7 /* Transcripts.xcdatamodel */,
+			);
+			currentVersion = 2CAEB87D247EB3FA009C5DC7 /* Transcripts.xcdatamodel */;
+			path = Transcripts.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2C868E86247DC37B0045D1AA /* Project object */;
 }
