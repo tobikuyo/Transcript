@@ -23,6 +23,7 @@
 		2CAEB87A247E9F8A009C5DC7 /* Caudex-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB878247E9F8A009C5DC7 /* Caudex-Bold.ttf */; };
 		2CAEB87B247E9F8A009C5DC7 /* Caudex-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB879247E9F8A009C5DC7 /* Caudex-Regular.ttf */; };
 		2CAEB87E247EB3FA009C5DC7 /* Transcripts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB87C247EB3FA009C5DC7 /* Transcripts.xcdatamodeld */; };
+		2CAEB8A9247EBA47009C5DC7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		2CAEB878247E9F8A009C5DC7 /* Caudex-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Bold.ttf"; sourceTree = "<group>"; };
 		2CAEB879247E9F8A009C5DC7 /* Caudex-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Regular.ttf"; sourceTree = "<group>"; };
 		2CAEB87D247EB3FA009C5DC7 /* Transcripts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transcripts.xcdatamodel; sourceTree = "<group>"; };
+		2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				2CAEB87C247EB3FA009C5DC7 /* Transcripts.xcdatamodeld */,
+				2CAEB8A8247EBA47009C5DC7 /* CoreDataStack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				2C868E92247DC37B0045D1AA /* AppDelegate.swift in Sources */,
 				2C868EAD247DCF560045D1AA /* ScriptTagsCollectionViewController.swift in Sources */,
 				2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */,
+				2CAEB8A9247EBA47009C5DC7 /* CoreDataStack.swift in Sources */,
 				2C868EB0247DD06B0045D1AA /* Identifier.swift in Sources */,
 				2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */,
 				2CAEB87E247EB3FA009C5DC7 /* Transcripts.xcdatamodeld in Sources */,
