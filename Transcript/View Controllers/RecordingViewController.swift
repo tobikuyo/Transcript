@@ -139,3 +139,13 @@ class RecordingViewController: UIViewController {
         transcriptTextView.textColor = .darkGray
     }
 }
+
+extension RecordingViewController: SFSpeechRecognizerDelegate {
+    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        if available {
+            recordButton.isEnabled = true
+        } else {
+            recordButton.isEnabled = false
+        }
+    }
+}
