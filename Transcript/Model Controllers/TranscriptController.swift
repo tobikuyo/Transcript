@@ -10,7 +10,7 @@ import Foundation
 
 class TranscriptController {
 
-    var transcripts: [Transcript] = []
+    var transcripts: [TranscriptModel] = []
 
     // MARK: - CRUD Methods
 
@@ -19,13 +19,13 @@ class TranscriptController {
                           category: TranscriptCategory,
                           recordingURL: URL) {
 
-        let transcript = Transcript(transcriptTitle: title, text: text, category: category, recordingURL: recordingURL)
+        let transcript = TranscriptModel(transcriptTitle: title, text: text, category: category, recordingURL: recordingURL)
 
         transcripts.append(transcript)
         CoreDataStack.shared.save()
     }
 
-    func updateTranscript(_ transcript: Transcript,
+    func updateTranscript(_ transcript: TranscriptModel,
                           title: String,
                           text: String,
                           category: TranscriptCategory,
@@ -38,7 +38,7 @@ class TranscriptController {
         CoreDataStack.shared.save()
     }
 
-    func deleteTrancript(_ transcript: Transcript) {
+    func deleteTrancript(_ transcript: TranscriptModel) {
         CoreDataStack.shared.mainContext.delete(transcript)
         CoreDataStack.shared.save()
     }

@@ -1,5 +1,5 @@
 //
-//  Transcript+Convenience.swift
+//  TranscriptModel+Convenience.swift
 //  Transcript
 //
 //  Created by Tobi Kuyoro on 27/05/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension Transcript {
+extension TranscriptModel {
     @discardableResult convenience init(transcriptTitle: String,
                                         text: String,
                                         category: TranscriptCategory,

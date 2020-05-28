@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Transcript" representedClassName="Transcript" syncable="YES" codeGenerationType="class">
+    <entity name="TranscriptModel" representedClassName="TranscriptModel" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="recordingURL" optional="YES" attributeType="String"/>
@@ -8,6 +8,6 @@
         <attribute name="transcriptTitle" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Transcript" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="TranscriptModel" positionX="-54" positionY="-9" width="128" height="118"/>
     </elements>
 </model>
