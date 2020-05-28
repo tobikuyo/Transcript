@@ -42,7 +42,7 @@
                                     </subviews>
                                 </collectionViewCellContentView>
                                 <connections>
-                                    <outlet property="imageView" destination="l3K-yz-9hJ" id="xMd-E6-XKR"/>
+                                    <outlet property="categoryImage" destination="l3K-yz-9hJ" id="xMd-E6-XKR"/>
                                     <segue destination="wTD-PG-M2C" kind="show" identifier="ShowScriptsSegue" id="Syc-DA-WDv"/>
                                 </connections>
                             </collectionViewCell>
