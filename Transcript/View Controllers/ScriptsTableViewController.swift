@@ -12,13 +12,19 @@ import CoreData
 class ScriptsTableViewController: UIViewController {
 
     @IBOutlet var backButton: UIButton!
+    @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var tableView: UITableView!
 
     var transcriptController: TranscriptController?
 
+    var category: TranscriptCategory
+
     lazy var fetchedResultsController: NSFetchedResultsController<TranscriptModel> = {
         let fetchRequest: NSFetchRequest<TranscriptModel> = TranscriptModel.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
+
+        let predicate = NSPredicate(format: "category == %@", category.rawValue)
+        fetchRequest.predicate = predicate
 
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
@@ -36,15 +42,49 @@ class ScriptsTableViewController: UIViewController {
         return frc
     }()
 
+    init?(coder: NSCoder, category: TranscriptCategory) {
+        self.category = category
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
 
-//        tableView.delegate = self
-//        tableView.dataSource = self
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 
+    private func updateViews() {
+
+        let darkView = UIView()
+        darkView.backgroundColor = .black
+        darkView.alpha = 0.75
+        darkView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImage.addSubview(darkView)
+
+        NSLayoutConstraint.activate([
+            darkView.topAnchor.constraint(equalTo:backgroundImage.topAnchor),
+            darkView.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor),
+            darkView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor),
+            darkView.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor)
+        ])
     }
 
     // MARK: - Navigation
@@ -54,15 +94,20 @@ class ScriptsTableViewController: UIViewController {
     }
 }
 
-//extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource {
-////    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////
-////    }
-////
-////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////
-////    }
-//}
+extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let transcripts = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return transcripts
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.scriptCell, for: indexPath)
+
+        let transcript = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = transcript.transcriptTitle
+        return cell
+    }
+}
 
 extension ScriptsTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

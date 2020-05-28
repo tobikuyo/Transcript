@@ -45,6 +45,14 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let scriptsTVC = storyboard?.instantiateViewController(identifier: Identifier.scriptsTVC, creator: { coder in
+            return ScriptsTableViewController(coder: coder, category: self.categories[indexPath.item])
+        }) else { return }
+
+        navigationController?.pushViewController(scriptsTVC, animated: true)
+    }
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

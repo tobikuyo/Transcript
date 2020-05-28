@@ -14,4 +14,5 @@ struct Identifier {
     static let scriptDetail = "ScriptDetailSegue"
     static let tagCell      = "TagCell"
     static let scriptCell   = "ScriptCell"
+    static let scriptsTVC   = "ScriptsTableViewController"
 }
