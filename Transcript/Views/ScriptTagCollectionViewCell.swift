@@ -10,9 +10,24 @@ import UIKit
 
 class ScriptTagCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet var categoryImage: UIImageView!
+    // MARK: - Properties
 
+    var categoryImage: UIImageView!
     var categoryLabel: UILabel!
+    var scriptCountLabel: UILabel!
+
+    var diaryCount  = 0
+    var ideasCount  = 0
+    var schoolCount = 0
+    var workCount   = 0
+    var tasksCount  = 0
+    var randomCount = 0
+
+    var transcripts: [Transcript]? {
+        didSet {
+            updateViews()
+        }
+    }
 
     var category: TranscriptCategory? {
         didSet {
@@ -35,12 +50,53 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
     // MARK: - View Methods
 
     private func updateViews() {
-        guard let category = category else { return }
+        guard
+            let category = category,
+            let transcripts = transcripts else { return }
+
         categoryImage.image = UIImage(named: category.rawValue)
         categoryLabel.text = category.rawValue.capitalized
+
+        for transcript in transcripts {
+            switch transcript.category {
+            case "Diary":
+                showCountLabel(&diaryCount)
+            case "Ideas":
+                showCountLabel(&ideasCount)
+            case "School":
+                showCountLabel(&schoolCount)
+            case "Work":
+                showCountLabel(&workCount)
+            case "Tasks":
+                showCountLabel(&tasksCount)
+            default:
+                showCountLabel(&randomCount)
+            }
+        }
+    }
+
+    private func showCountLabel(_ count: inout Int) {
+        count += 1
+        scriptCountLabel.text = "\(count) TRANSCRIPTS"
+        scriptCountLabel.isHidden = false
     }
 
     private func setUpSubviews() {
+        layer.cornerRadius = 7
+        clipsToBounds = true
+
+        categoryImage = UIImageView()
+        categoryImage.contentMode = .scaleAspectFill
+        categoryImage.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(categoryImage)
+
+        NSLayoutConstraint.activate([
+            categoryImage.topAnchor.constraint(equalTo: topAnchor),
+            categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            categoryImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            categoryImage.widthAnchor.constraint(equalTo: widthAnchor)
+        ])
+
         let darkView = UIView()
         darkView.backgroundColor = .black
         darkView.alpha = 0.7
@@ -50,15 +106,15 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             darkView.topAnchor.constraint(equalTo: categoryImage.topAnchor),
             darkView.leadingAnchor.constraint(equalTo: categoryImage.leadingAnchor),
-            darkView.leadingAnchor.constraint(equalTo: categoryImage.trailingAnchor),
-            darkView.bottomAnchor.constraint(equalTo: categoryImage.bottomAnchor)
+            darkView.bottomAnchor.constraint(equalTo: categoryImage.bottomAnchor),
+            darkView.widthAnchor.constraint(equalTo: categoryImage.widthAnchor)
         ])
 
         categoryLabel = UILabel()
         categoryLabel.textAlignment = .center
-        categoryLabel.font = UIFont(name: "Play-Bold", size: 20)
         categoryLabel.textColor = .white
         categoryLabel.alpha = 0.9
+        categoryLabel.font = UIFont(name: "Play-Regular", size: 20)
         categoryLabel.adjustsFontSizeToFitWidth = true
         categoryLabel.minimumScaleFactor = 0.5
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +125,19 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
             categoryLabel.trailingAnchor.constraint(equalTo: darkView.trailingAnchor, constant: -4),
             categoryLabel.centerXAnchor.constraint(equalTo: darkView.centerXAnchor),
             categoryLabel.centerYAnchor.constraint(equalTo: darkView.centerYAnchor)
+        ])
+
+        scriptCountLabel = UILabel()
+        scriptCountLabel.textAlignment = .center
+        scriptCountLabel.textColor = .white
+        scriptCountLabel.alpha = 0.9
+        scriptCountLabel.font = .systemFont(ofSize: 11, weight: .regular)
+        scriptCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        darkView.addSubview(scriptCountLabel)
+
+        NSLayoutConstraint.activate([
+            scriptCountLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 8),
+            scriptCountLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }
