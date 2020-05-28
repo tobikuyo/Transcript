@@ -16,14 +16,9 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
     var categoryLabel: UILabel!
     var scriptCountLabel: UILabel!
 
-    var diaryCount  = 0
-    var ideasCount  = 0
-    var schoolCount = 0
-    var workCount   = 0
-    var tasksCount  = 0
-    var randomCount = 0
+    var count = 0
 
-    var transcripts: [Transcript]? {
+    var transcripts: [TranscriptModel]? {
         didSet {
             updateViews()
         }
@@ -56,26 +51,18 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
 
         categoryImage.image = UIImage(named: category.rawValue.lowercased())
         categoryLabel.text = category.rawValue.capitalized
+        scriptCountLabel.isHidden = true
 
         for transcript in transcripts {
-            switch transcript.category {
-            case "Diary":
-                showCountLabel(&diaryCount)
-            case "Ideas":
-                showCountLabel(&ideasCount)
-            case "School":
-                showCountLabel(&schoolCount)
-            case "Work":
-                showCountLabel(&workCount)
-            case "Tasks":
-                showCountLabel(&tasksCount)
-            default:
-                showCountLabel(&randomCount)
+            if transcript.category == category.rawValue {
+                count += 1
+                scriptCountLabel.text = "\(count) TRANSCRIPTS"
+                scriptCountLabel.isHidden = false
             }
         }
     }
 
-    private func showCountLabel(_ count: inout Int) {
+    private func showCountLabel(_ count: inout Int, for category: TranscriptCategory) {
         count += 1
         scriptCountLabel.text = "\(count) TRANSCRIPTS"
         scriptCountLabel.isHidden = false

@@ -10,8 +10,12 @@ import UIKit
 
 class ScriptTagsCollectionViewController: UICollectionViewController {
 
+    // MARK: - Properties
+
     let transcriptController = TranscriptController()
     let categories = TranscriptCategory.allCases
+
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,17 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Identifier.showScripts {
+            if let destinationVC = segue.destination as? ScriptsTableViewController {
+                destinationVC.transcriptController = transcriptController
+            }
+        }
+
+        else if segue.identifier == Identifier.addScript {
+            if let destinationVC = segue.destination as? RecordingViewController {
+                destinationVC.trancriptController = transcriptController
+            }
+        }
     }
 }
 
