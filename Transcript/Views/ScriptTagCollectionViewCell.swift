@@ -54,7 +54,7 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
             let category = category,
             let transcripts = transcripts else { return }
 
-        categoryImage.image = UIImage(named: category.rawValue)
+        categoryImage.image = UIImage(named: category.rawValue.lowercased())
         categoryLabel.text = category.rawValue.capitalized
 
         for transcript in transcripts {
@@ -99,7 +99,7 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
 
         let darkView = UIView()
         darkView.backgroundColor = .black
-        darkView.alpha = 0.7
+        darkView.alpha = 0.75
         darkView.translatesAutoresizingMaskIntoConstraints = false
         categoryImage.addSubview(darkView)
 

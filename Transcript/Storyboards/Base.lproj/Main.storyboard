@@ -46,7 +46,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Tags" id="pl8-w5-Rw3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nTS-Ef-JId">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nTS-Ef-JId">
                             <connections>
                                 <segue destination="88O-wP-Zew" kind="show" identifier="AddScriptSegue" id="0Ad-B9-hgJ"/>
                             </connections>

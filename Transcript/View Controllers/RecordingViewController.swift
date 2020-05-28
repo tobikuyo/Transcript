@@ -24,10 +24,8 @@ class RecordingViewController: UIViewController {
     private let speechRecognizer = SFSpeechRecognizer()
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
-    private var audioRecorder: AVAudioRecorder?
 
     var trancriptController: TranscriptController?
-    var transcriptText: String?
     var recordingURL: URL?
     var selectedCategory: String?
     let categories = TranscriptCategory.allCases
@@ -45,12 +43,11 @@ class RecordingViewController: UIViewController {
 
     @IBAction func saveTranscript(_ sender: Any) {
         guard
-            let title = titleTextField.text,
+            let title = titleTextField.text, !title.isEmpty,
             let text = transcriptTextView.text,
             let recordingURL = recordingURL,
             let categoryText = categoryTextField.text,
-            let category = TranscriptCategory(rawValue: categoryText)
-            else {
+            let category = TranscriptCategory(rawValue: categoryText) else {
                 missingPropertiesAlert()
                 return
         }
@@ -65,8 +62,10 @@ class RecordingViewController: UIViewController {
         if recordButton.isSelected {
             requestAuthorization()
             transcriptTextView.text = ""
+            transcriptTextView.isEditable = false
         } else {
             stopSpeechRecognition()
+            transcriptTextView.isEditable = true
         }
     }
 
@@ -107,7 +106,6 @@ class RecordingViewController: UIViewController {
         recognitionTask = speechRecognizer.recognitionTask(with: request, resultHandler: { result, error in
             if let result = result {
                 let transcriptText = result.bestTranscription.formattedString
-                self.transcriptText = transcriptText
                 self.transcriptTextView.text = transcriptText
                 self.recordingURL = recordingURL
             } else if let error = error {
@@ -139,9 +137,9 @@ class RecordingViewController: UIViewController {
 
     private func updateViews() {
         recordButton.layer.cornerRadius = 45
+        transcriptTextView.textColor = .darkGray
         transcriptTextView.text = "(Go ahead, I'm listening)"
         transcriptTextView.font = UIFont(name: "Play-Regular", size: 16)
-        transcriptTextView.textColor = .darkGray
         titleTextField.font = UIFont(name: "Play-Regular", size: 16)
         categoryTextField.font = UIFont(name: "Play-Regular", size: 16)
     }

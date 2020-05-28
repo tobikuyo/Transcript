@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Identifier {
+struct Identifier {
     static let showScripts  = "ShowScriptsSegue"
     static let addScript    = "AddScriptSegue"
     static let scriptDetail = "ScriptDetailSegue"
