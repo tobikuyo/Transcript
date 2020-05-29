@@ -66,7 +66,7 @@ class EditScriptViewController: UIViewController {
             let category = TranscriptCategory(rawValue: categoryText) else { return }
 
         transcriptController.updateTranscript(transcript, title: title, text: text, category: category, recordingURL: recordingURL)
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 
     @IBAction func backButtonTapped(_ sender: Any) {
