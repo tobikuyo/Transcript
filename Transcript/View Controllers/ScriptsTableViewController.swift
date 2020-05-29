@@ -161,6 +161,13 @@ extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource
 
         navigationController?.pushViewController(scriptDetailVC, animated: false)
     }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let transcript = fetchedResultsController.object(at: indexPath)
+            transcriptController.deleteTrancript(transcript)
+        }
+    }
 }
 
 extension ScriptsTableViewController: NSFetchedResultsControllerDelegate {
