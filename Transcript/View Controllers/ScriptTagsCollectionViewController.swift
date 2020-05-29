@@ -10,6 +10,8 @@ import UIKit
 
 class ScriptTagsCollectionViewController: UICollectionViewController {
 
+    @IBOutlet var apperanceButton: UIBarButtonItem!
+
     // MARK: - Properties
 
     let transcriptController = TranscriptController()
@@ -26,6 +28,10 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         collectionView.reloadData()
     }
+
+    @IBAction func changeAppearance(_ sender: Any) {
+    }
+
 
     // MARK: UICollectionViewDataSource
 
@@ -47,7 +53,8 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let scriptsTVC = storyboard?.instantiateViewController(identifier: Identifier.scriptsTVC, creator: { coder in
-            return ScriptsTableViewController(coder: coder, category: self.categories[indexPath.item])
+            let category = self.categories[indexPath.item]
+            return ScriptsTableViewController(coder: coder, category: category, transcriptController: self.transcriptController)
         }) else { return }
 
         navigationController?.pushViewController(scriptsTVC, animated: true)
@@ -58,7 +65,7 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifier.addScript {
             if let destinationVC = segue.destination as? RecordingViewController {
-                destinationVC.trancriptController = transcriptController
+                destinationVC.transcriptController = transcriptController
             }
         }
     }

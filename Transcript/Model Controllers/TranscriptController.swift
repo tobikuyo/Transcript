@@ -33,7 +33,6 @@ class TranscriptController {
         transcript.transcriptTitle = title
         transcript.text = text
         transcript.category = category.rawValue
-        transcript.recordingURL = "\(recordingURL)"
 
         CoreDataStack.shared.save()
     }

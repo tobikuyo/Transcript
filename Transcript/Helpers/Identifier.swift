@@ -9,9 +9,11 @@
 import Foundation
 
 struct Identifier {
-    static let addScript    = "AddScriptSegue"
-    static let tagCell      = "TagCell"
-    static let scriptCell   = "ScriptCell"
-    static let scriptsTVC   = "ScriptsTableViewController"
-    static let scriptDetail = "SciptDetailViewController"
+    static let addScript      = "AddScriptSegue"
+    static let editScript     = "EditScriptSegue"
+    static let tagCell        = "TagCell"
+    static let scriptCell     = "ScriptCell"
+    static let scriptsTVC     = "ScriptsTableViewController"
+    static let scriptDetailVC = "SciptDetailViewController"
+    static let editScriptVC   = "EditScriptViewController"
 }

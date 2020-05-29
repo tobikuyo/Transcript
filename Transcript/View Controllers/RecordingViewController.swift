@@ -25,7 +25,7 @@ class RecordingViewController: UIViewController {
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
 
-    var trancriptController: TranscriptController?
+    var transcriptController: TranscriptController?
     var recordingURL: URL?
     var selectedCategory: String?
     let categories = TranscriptCategory.allCases
@@ -52,7 +52,7 @@ class RecordingViewController: UIViewController {
                 return
         }
 
-        trancriptController?.createTranscript(title: title, text: text, category: category, recordingURL: recordingURL)
+        transcriptController?.createTranscript(title: title, text: text, category: category, recordingURL: recordingURL)
         navigationController?.popViewController(animated: true)
     }
 
@@ -137,11 +137,13 @@ class RecordingViewController: UIViewController {
 
     private func updateViews() {
         recordButton.layer.cornerRadius = 45
-        transcriptTextView.textColor = .darkGray
-        transcriptTextView.text = "(Go ahead, I'm listening)"
-        transcriptTextView.font = UIFont(name: "Play-Regular", size: 16)
+        titleTextField.textColor = .label
+        categoryTextField.textColor = .label
+        transcriptTextView.textColor = .label
         titleTextField.font = UIFont(name: "Play-Regular", size: 16)
         categoryTextField.font = UIFont(name: "Play-Regular", size: 16)
+        transcriptTextView.font = UIFont(name: "Play-Regular", size: 16)
+        transcriptTextView.text = "(Go ahead, I'm listening)"
     }
 
     private func missingPropertiesAlert() {
@@ -166,7 +168,7 @@ class RecordingViewController: UIViewController {
     private func createCategoryPicker() {
         let categoryPicker = UIPickerView()
         categoryPicker.delegate = self
-        categoryPicker.backgroundColor = .white
+        categoryPicker.backgroundColor = .systemBackground
         categoryTextField.inputView = categoryPicker
     }
 

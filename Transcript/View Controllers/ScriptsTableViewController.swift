@@ -20,7 +20,7 @@ class ScriptsTableViewController: UIViewController {
     // MARK: - Properties
 
     let category: TranscriptCategory
-    var transcriptController: TranscriptController?
+    let transcriptController: TranscriptController
 
     lazy var fetchedResultsController: NSFetchedResultsController<TranscriptModel> = {
         let fetchRequest: NSFetchRequest<TranscriptModel> = TranscriptModel.fetchRequest()
@@ -47,8 +47,9 @@ class ScriptsTableViewController: UIViewController {
 
     // MARK: - Initializers
 
-    init?(coder: NSCoder, category: TranscriptCategory) {
+    init?(coder: NSCoder, category: TranscriptCategory, transcriptController: TranscriptController) {
         self.category = category
+        self.transcriptController = transcriptController
         super.init(coder: coder)
     }
 
@@ -64,6 +65,11 @@ class ScriptsTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+          super.viewWillDisappear(animated)
+          navigationController?.setNavigationBarHidden(false, animated: animated)
+      }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -98,6 +104,8 @@ class ScriptsTableViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.textColor = .white
         titleLabel.font = UIFont(name: "Oswald-Bold", size: 40)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.minimumScaleFactor = 0.5
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
 
@@ -144,9 +152,9 @@ extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let scriptDetailVC = storyboard?.instantiateViewController(identifier: Identifier.scriptDetail, creator: { coder in
+        guard let scriptDetailVC = storyboard?.instantiateViewController(identifier: Identifier.scriptDetailVC, creator: { coder in
             let transcript = self.fetchedResultsController.object(at: indexPath)
-            return SciptDetailViewController(coder: coder, transcript: transcript)
+            return SciptDetailViewController(coder: coder, transcript: transcript, transcriptController: self.transcriptController)
         }) else { return }
 
         tableView.deselectRow(at: indexPath, animated: true)
