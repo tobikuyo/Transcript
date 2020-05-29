@@ -288,14 +288,23 @@
                                     <action selector="editButtonTapped:" destination="2Mr-gW-tzb" eventType="touchUpInside" id="1YH-XE-M3t"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLs-jD-qCW">
+                                <rect key="frame" x="134" y="412" width="146" height="30"/>
+                                <state key="normal" title="TAP HERE TO SHARE"/>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="2Mr-gW-tzb" eventType="touchUpInside" id="hcj-jo-IgV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="XPY-lh-VEa" firstAttribute="top" secondItem="wLs-jD-qCW" secondAttribute="bottom" constant="28" id="0C1-VZ-k7f"/>
                             <constraint firstItem="kiv-O1-6Tk" firstAttribute="top" secondItem="UdP-hS-Qc0" secondAttribute="top" constant="13" id="0XT-mO-bjP"/>
                             <constraint firstItem="vf1-dh-klw" firstAttribute="leading" secondItem="UdP-hS-Qc0" secondAttribute="leading" id="DVb-7e-FXr"/>
                             <constraint firstItem="XPY-lh-VEa" firstAttribute="bottom" secondItem="UdP-hS-Qc0" secondAttribute="bottom" id="Dtb-S1-UZp"/>
                             <constraint firstItem="XPY-lh-VEa" firstAttribute="top" secondItem="vf1-dh-klw" secondAttribute="bottom" constant="8" id="GZf-7c-dxX"/>
                             <constraint firstItem="mNA-FR-Y6y" firstAttribute="leading" secondItem="UdP-hS-Qc0" secondAttribute="leading" constant="20" id="KF0-9j-PuB"/>
+                            <constraint firstItem="wLs-jD-qCW" firstAttribute="centerX" secondItem="Sli-AM-ySP" secondAttribute="centerX" id="Mik-yD-iZ2"/>
                             <constraint firstItem="UdP-hS-Qc0" firstAttribute="trailing" secondItem="XPY-lh-VEa" secondAttribute="trailing" constant="20" id="RfW-ZN-csA"/>
                             <constraint firstItem="mNA-FR-Y6y" firstAttribute="top" secondItem="UdP-hS-Qc0" secondAttribute="top" constant="10" id="VdX-yS-zS3"/>
                             <constraint firstItem="UdP-hS-Qc0" firstAttribute="trailing" secondItem="kiv-O1-6Tk" secondAttribute="trailing" constant="20" id="pa6-aH-eul"/>
@@ -307,14 +316,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="WjW-9C-fRr"/>
                     <connections>
-                        <outlet property="backButton" destination="mNA-FR-Y6y" id="kn4-CB-V5e"/>
                         <outlet property="backgroundImage" destination="vf1-dh-klw" id="NVu-DR-H28"/>
+                        <outlet property="shareButton" destination="wLs-jD-qCW" id="gsA-m1-hm8"/>
                         <outlet property="transcriptTextView" destination="XPY-lh-VEa" id="wOq-Nl-H9v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoh-6K-W4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2443" y="-6"/>
+            <point key="canvasLocation" x="2252" y="-6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SAT-EL-kbK">
@@ -431,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVE-bf-PZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3338" y="-6"/>
+            <point key="canvasLocation" x="3055" y="-6"/>
         </scene>
     </scenes>
     <resources>

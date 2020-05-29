@@ -12,7 +12,7 @@ class SciptDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var backButton: UIButton!
+    @IBOutlet var shareButton: UIButton!
     @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var transcriptTextView: UITextView!
     
@@ -69,7 +69,17 @@ class SciptDetailViewController: UIViewController {
         
         navigationController?.pushViewController(editScriptVC, animated: true)
     }
-    
+
+    @IBAction func shareButtonTapped(_ sender: Any) {
+        guard
+            let title = transcript.transcriptTitle,
+            let text = transcript.text else { return }
+        let transcriptPDF = TranscriptPDF(title: title, text: text)
+        let data = transcriptPDF.createTranscript()
+        let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: [])
+        present(activityVC, animated: true, completion: nil)
+    }
+
     // MARK: - Methods
     
     private func updateViews() {
@@ -113,6 +123,10 @@ class SciptDetailViewController: UIViewController {
         dateLabel.font = UIFont(name: "Play-Regular", size: 12)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(dateLabel)
+
+        shareButton.tintColor = .white
+        shareButton.titleLabel?.font = UIFont(name: "Play-Regular", size: 12)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
