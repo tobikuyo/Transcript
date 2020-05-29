@@ -65,11 +65,6 @@ class ScriptsTableViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -79,14 +74,15 @@ class ScriptsTableViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    // MARK: - Navigation
+    // MARK: - Methods
 
     private func updateViews() {
         backgroundImage.image = UIImage(named: "\(category.rawValue.lowercased())Background")
+        backgroundImage.contentMode = .scaleAspectFill
 
         let darkView = UIView()
         darkView.backgroundColor = .black
-        darkView.alpha = 0.75
+        darkView.alpha = 0.8
         darkView.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.addSubview(darkView)
 
@@ -101,7 +97,7 @@ class ScriptsTableViewController: UIViewController {
         titleLabel.text = category.rawValue.uppercased()
         titleLabel.textAlignment = .center
         titleLabel.textColor = .white
-        titleLabel.font = UIFont(name: "Oswald-Bold", size: 35)
+        titleLabel.font = UIFont(name: "Oswald-Bold", size: 40)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
 
@@ -110,7 +106,7 @@ class ScriptsTableViewController: UIViewController {
         let scriptCountLabel = UILabel()
         scriptCountLabel.textAlignment = .center
         scriptCountLabel.textColor = .white
-        scriptCountLabel.font = UIFont(name: "Oswald-Regular", size: 12)
+        scriptCountLabel.font = UIFont(name: "Play-Regular", size: 12)
         scriptCountLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scriptCountLabel)
 
@@ -155,7 +151,7 @@ extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource
 
         tableView.deselectRow(at: indexPath, animated: true)
 
-        navigationController?.pushViewController(scriptDetailVC, animated: true)
+        navigationController?.pushViewController(scriptDetailVC, animated: false)
     }
 }
 
