@@ -19,9 +19,8 @@ class ScriptsTableViewController: UIViewController {
 
     // MARK: - Properties
 
+    let category: TranscriptCategory
     var transcriptController: TranscriptController?
-
-    var category: TranscriptCategory
 
     lazy var fetchedResultsController: NSFetchedResultsController<TranscriptModel> = {
         let fetchRequest: NSFetchRequest<TranscriptModel> = TranscriptModel.fetchRequest()
@@ -146,6 +145,17 @@ extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource
         cell.textLabel?.text = transcript.transcriptTitle
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let scriptDetailVC = storyboard?.instantiateViewController(identifier: Identifier.scriptDetail, creator: { coder in
+            let transcript = self.fetchedResultsController.object(at: indexPath)
+            return SciptDetailViewController(coder: coder, transcript: transcript)
+        }) else { return }
+
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        navigationController?.pushViewController(scriptDetailVC, animated: true)
     }
 }
 
