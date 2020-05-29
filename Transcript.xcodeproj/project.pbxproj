@@ -18,6 +18,10 @@
 		2C868EB4247DD2F50045D1AA /* ScriptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */; };
 		2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */; };
 		2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */; };
+		2C92B77E2480815800795D61 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C92B77B2480815700795D61 /* Oswald-Medium.ttf */; };
+		2C92B77F2480815800795D61 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C92B77C2480815800795D61 /* Oswald-Bold.ttf */; };
+		2C92B7802480815800795D61 /* Oswald-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C92B77D2480815800795D61 /* Oswald-SemiBold.ttf */; };
+		2C92B782248089AC00795D61 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C92B781248089AB00795D61 /* Oswald-Regular.ttf */; };
 		2CAEB876247E9F73009C5DC7 /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB874247E9F73009C5DC7 /* Play-Regular.ttf */; };
 		2CAEB877247E9F73009C5DC7 /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB875247E9F73009C5DC7 /* Play-Bold.ttf */; };
 		2CAEB87A247E9F8A009C5DC7 /* Caudex-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CAEB878247E9F8A009C5DC7 /* Caudex-Bold.ttf */; };
@@ -43,6 +47,10 @@
 		2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableViewController.swift; sourceTree = "<group>"; };
 		2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciptDetailViewController.swift; sourceTree = "<group>"; };
 		2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
+		2C92B77B2480815700795D61 /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
+		2C92B77C2480815800795D61 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		2C92B77D2480815800795D61 /* Oswald-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-SemiBold.ttf"; sourceTree = "<group>"; };
+		2C92B781248089AB00795D61 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		2CAEB874247E9F73009C5DC7 /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 		2CAEB875247E9F73009C5DC7 /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		2CAEB878247E9F8A009C5DC7 /* Caudex-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caudex-Bold.ttf"; sourceTree = "<group>"; };
@@ -160,6 +168,10 @@
 				2CAEB874247E9F73009C5DC7 /* Play-Regular.ttf */,
 				2CAEB878247E9F8A009C5DC7 /* Caudex-Bold.ttf */,
 				2CAEB879247E9F8A009C5DC7 /* Caudex-Regular.ttf */,
+				2C92B77C2480815800795D61 /* Oswald-Bold.ttf */,
+				2C92B77B2480815700795D61 /* Oswald-Medium.ttf */,
+				2C92B77D2480815800795D61 /* Oswald-SemiBold.ttf */,
+				2C92B781248089AB00795D61 /* Oswald-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -231,11 +243,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C92B782248089AC00795D61 /* Oswald-Regular.ttf in Resources */,
 				2C868E9E247DC37C0045D1AA /* LaunchScreen.storyboard in Resources */,
+				2C92B7802480815800795D61 /* Oswald-SemiBold.ttf in Resources */,
 				2CAEB877247E9F73009C5DC7 /* Play-Bold.ttf in Resources */,
 				2CAEB876247E9F73009C5DC7 /* Play-Regular.ttf in Resources */,
 				2CAEB87B247E9F8A009C5DC7 /* Caudex-Regular.ttf in Resources */,
 				2CAEB87A247E9F8A009C5DC7 /* Caudex-Bold.ttf in Resources */,
+				2C92B77F2480815800795D61 /* Oswald-Bold.ttf in Resources */,
+				2C92B77E2480815800795D61 /* Oswald-Medium.ttf in Resources */,
 				2C868E9B247DC37C0045D1AA /* Assets.xcassets in Resources */,
 				2C868E99247DC37B0045D1AA /* Main.storyboard in Resources */,
 			);
