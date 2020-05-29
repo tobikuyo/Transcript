@@ -11,9 +11,13 @@ import CoreData
 
 class ScriptsTableViewController: UIViewController {
 
+    // MARK: - IBOutlets
+
     @IBOutlet var backButton: UIButton!
     @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var tableView: UITableView!
+
+    // MARK: - Properties
 
     var transcriptController: TranscriptController?
 
@@ -42,6 +46,8 @@ class ScriptsTableViewController: UIViewController {
         return frc
     }()
 
+    // MARK: - Initializers
+
     init?(coder: NSCoder, category: TranscriptCategory) {
         self.category = category
         super.init(coder: coder)
@@ -51,6 +57,8 @@ class ScriptsTableViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - View Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -58,8 +66,9 @@ class ScriptsTableViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +80,10 @@ class ScriptsTableViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    // MARK: - Navigation
+
     private func updateViews() {
+        backgroundImage.image = UIImage(named: "\(category.rawValue.lowercased())Background")
 
         let darkView = UIView()
         darkView.backgroundColor = .black
@@ -85,12 +97,39 @@ class ScriptsTableViewController: UIViewController {
             darkView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor),
             darkView.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor)
         ])
-    }
 
-    // MARK: - Navigation
+        let titleLabel = UILabel()
+        titleLabel.text = category.rawValue.uppercased()
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont(name: "Oswald-Bold", size: 35)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let count = fetchedResultsController.fetchedObjects?.count else { return }
 
+        let scriptCountLabel = UILabel()
+        scriptCountLabel.textAlignment = .center
+        scriptCountLabel.textColor = .white
+        scriptCountLabel.font = UIFont(name: "Oswald-Regular", size: 12)
+        scriptCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scriptCountLabel)
+
+        switch count {
+        case 0:
+            scriptCountLabel.text = "NO TRANSCRIPTS"
+        case 1:
+            scriptCountLabel.text = "1 TRANSCRIPT"
+        default:
+            scriptCountLabel.text = "\(count) TRANSCRIPTS"
+        }
+
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: darkView.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: darkView.centerYAnchor),
+            scriptCountLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            scriptCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
 }
 
@@ -105,6 +144,7 @@ extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource
 
         let transcript = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = transcript.transcriptTitle
+
         return cell
     }
 }

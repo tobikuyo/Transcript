@@ -56,16 +56,17 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
         for transcript in transcripts {
             if transcript.category == category.rawValue {
                 count += 1
-                scriptCountLabel.text = "\(count) TRANSCRIPTS"
-                scriptCountLabel.isHidden = false
+
+                switch count {
+                case 1:
+                    scriptCountLabel.text = "1 TRANSCRIPT"
+                    scriptCountLabel.isHidden = false
+                default:
+                    scriptCountLabel.text = "\(count) TRANSCRIPTS"
+                    scriptCountLabel.isHidden = false
+                }
             }
         }
-    }
-
-    private func showCountLabel(_ count: inout Int, for category: TranscriptCategory) {
-        count += 1
-        scriptCountLabel.text = "\(count) TRANSCRIPTS"
-        scriptCountLabel.isHidden = false
     }
 
     private func setUpSubviews() {

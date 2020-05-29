@@ -37,7 +37,7 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.tagCell, for: indexPath) as? ScriptTagCollectionViewCell else {
             return UICollectionViewCell()
         }
-    
+
         let category = categories[indexPath.row]
         let transcripts = transcriptController.transcripts
         cell.category = category
@@ -56,13 +56,7 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Identifier.showScripts {
-            if let destinationVC = segue.destination as? ScriptsTableViewController {
-                destinationVC.transcriptController = transcriptController
-            }
-        }
-
-        else if segue.identifier == Identifier.addScript {
+        if segue.identifier == Identifier.addScript {
             if let destinationVC = segue.destination as? RecordingViewController {
                 destinationVC.trancriptController = transcriptController
             }
