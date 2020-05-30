@@ -218,7 +218,7 @@ extension RecordingViewController: UIPickerViewDelegate, UIPickerViewDataSource 
         let label = UILabel()
         label.font = UIFont (name: "Play-Regular", size: 23)
         label.textAlignment = .center
-        label.text =  category.capitalized
+        label.text = category.capitalized
 
         return label
     }

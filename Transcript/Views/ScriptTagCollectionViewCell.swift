@@ -45,28 +45,11 @@ class ScriptTagCollectionViewCell: UICollectionViewCell {
     // MARK: - View Methods
 
     private func updateViews() {
-        guard
-            let category = category,
-            let transcripts = transcripts else { return }
+        guard let category = category else { return }
 
         categoryImage.image = UIImage(named: category.rawValue.lowercased())
         categoryLabel.text = category.rawValue.capitalized
         scriptCountLabel.isHidden = true
-
-        for transcript in transcripts {
-            if transcript.category == category.rawValue {
-                count += 1
-
-                switch count {
-                case 1:
-                    scriptCountLabel.text = "1 TRANSCRIPT"
-                    scriptCountLabel.isHidden = false
-                default:
-                    scriptCountLabel.text = "\(count) TRANSCRIPTS"
-                    scriptCountLabel.isHidden = false
-                }
-            }
-        }
     }
 
     private func setUpSubviews() {

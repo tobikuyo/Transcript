@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Tags-->
+        <!--CATEGORIES-->
         <scene sceneID="nAo-d7-y10">
             <objects>
                 <collectionViewController id="ten-wk-5xr" customClass="ScriptTagsCollectionViewController" customModule="Transcript" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,10 +45,10 @@
                             <outlet property="delegate" destination="ten-wk-5xr" id="h46-ix-w5f"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Tags" id="pl8-w5-Rw3">
-                        <barButtonItem key="leftBarButtonItem" image="lightbulb.slash" catalog="system" id="QD2-Mu-zuA">
+                    <navigationItem key="navigationItem" title="CATEGORIES" id="pl8-w5-Rw3">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="P2h-FY-0GH">
                             <connections>
-                                <action selector="changeAppearance:" destination="ten-wk-5xr" id="gGb-YD-K43"/>
+                                <action selector="toggleBarButton:" destination="ten-wk-5xr" id="FOf-VH-Ppc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nTS-Ef-JId">
@@ -211,7 +211,8 @@
                         <viewLayoutGuide key="safeArea" id="oIB-hU-PpQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="2Pl-j2-Q7V">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SWo-9J-QyH">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="goC-rt-ylv"/>
+                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="SWo-9J-QyH">
                             <connections>
                                 <action selector="saveTranscript:" destination="88O-wP-Zew" id="aXH-Cp-6Xe"/>
                             </connections>
@@ -333,6 +334,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DDG-Pk-v2O">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Play-Bold" family="Play" pointSize="18"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Play" family="Play" pointSize="21"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -392,35 +399,16 @@
                                     <action selector="saveTranscript:" destination="wJf-x7-CxR" eventType="touchUpInside" id="Ct0-PK-dDQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xee-Fn-8bM">
-                                <rect key="frame" x="20" y="54" width="30" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="ase-CZ-be7"/>
-                                    <constraint firstAttribute="width" constant="30" id="iga-in-JVi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Caudex" family="Caudex" pointSize="18"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="left-arrow">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="wJf-x7-CxR" eventType="touchUpInside" id="Wh1-mF-XHw"/>
-                                    <action selector="backButtonTapped:" destination="2Mr-gW-tzb" eventType="touchUpInside" id="X0s-j9-18b"/>
-                                    <action selector="backButtonTapped:" destination="wTD-PG-M2C" eventType="touchUpInside" id="apI-vN-Lnx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hnO-PU-4b7" firstAttribute="top" secondItem="N3F-6K-54f" secondAttribute="bottom" constant="20" id="0mi-Ii-qTa"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="trailing" secondItem="cWA-L9-l43" secondAttribute="trailing" constant="20" id="0yZ-zA-6PV"/>
-                            <constraint firstItem="xee-Fn-8bM" firstAttribute="top" secondItem="bWs-qp-LDv" secondAttribute="top" constant="10" id="1Aj-0d-IXe"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="trailing" secondItem="hnO-PU-4b7" secondAttribute="trailing" constant="20" id="1r8-pl-fkh"/>
                             <constraint firstItem="cWA-L9-l43" firstAttribute="top" secondItem="bWs-qp-LDv" secondAttribute="top" constant="100" id="2sF-U3-RIk"/>
                             <constraint firstItem="TOv-OI-teo" firstAttribute="top" secondItem="bWs-qp-LDv" secondAttribute="top" constant="13" id="8n4-xj-6TX"/>
                             <constraint firstItem="cWA-L9-l43" firstAttribute="leading" secondItem="bWs-qp-LDv" secondAttribute="leading" constant="20" id="BSt-mt-SU6"/>
                             <constraint firstItem="N3F-6K-54f" firstAttribute="leading" secondItem="bWs-qp-LDv" secondAttribute="leading" constant="20" id="CcN-U0-LEz"/>
-                            <constraint firstItem="xee-Fn-8bM" firstAttribute="leading" secondItem="bWs-qp-LDv" secondAttribute="leading" constant="20" id="CeV-Bw-DDG"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="trailing" secondItem="TOv-OI-teo" secondAttribute="trailing" constant="20" id="T0g-g6-quf"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="trailing" secondItem="N3F-6K-54f" secondAttribute="trailing" constant="20" id="YJJ-TI-jLM"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="bottom" secondItem="hnO-PU-4b7" secondAttribute="bottom" constant="100" id="k9r-8Q-pwX"/>
@@ -446,8 +434,6 @@
     <resources>
         <image name="arrows" width="512" height="512"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
-        <image name="left-arrow" width="512" height="512"/>
-        <image name="lightbulb.slash" catalog="system" width="116" height="128"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>

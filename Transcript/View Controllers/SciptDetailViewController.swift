@@ -23,7 +23,7 @@ class SciptDetailViewController: UIViewController {
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMMM yyyy, h:mm a"
+        formatter.dateFormat = "d MMMM yyyy"
         return formatter
     }
     
@@ -66,7 +66,7 @@ class SciptDetailViewController: UIViewController {
         guard let editScriptVC = storyboard?.instantiateViewController(identifier: Identifier.editScriptVC, creator: { coder in
             return EditScriptViewController(coder: coder, transcript: self.transcript, transcriptController: self.transcriptController)
         }) else { return }
-        
+
         navigationController?.pushViewController(editScriptVC, animated: true)
     }
 
@@ -100,7 +100,7 @@ class SciptDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             darkView.topAnchor.constraint(equalTo:backgroundImage.topAnchor),
             darkView.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor),
-            darkView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor),
+            darkView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: 2),
             darkView.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor)
         ])
         
