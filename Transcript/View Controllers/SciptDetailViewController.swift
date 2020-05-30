@@ -26,6 +26,10 @@ class SciptDetailViewController: UIViewController {
         formatter.dateFormat = "d MMMM yyyy"
         return formatter
     }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     // MARK: - Initializers
     

@@ -45,6 +45,10 @@ class ScriptsTableViewController: UIViewController {
         return frc
     }()
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     // MARK: - Initializers
 
     init?(coder: NSCoder, category: TranscriptCategory, transcriptController: TranscriptController) {
