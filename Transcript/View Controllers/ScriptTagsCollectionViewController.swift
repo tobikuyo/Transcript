@@ -10,30 +10,56 @@ import UIKit
 
 class ScriptTagsCollectionViewController: UICollectionViewController {
 
-    @IBOutlet var apperanceButton: UIBarButtonItem!
-
     // MARK: - Properties
 
     let transcriptController = TranscriptController()
     let categories = TranscriptCategory.allCases
 
+    var lightModeButton = UIBarButtonItem()
+    var darkModeButton = UIBarButtonItem()
+
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        toggleInterfaceSwitch()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
-    @IBAction func changeAppearance(_ sender: Any) {
+    // MARK: - Methods
+
+    @objc func switchToLightMode(sender: UIBarButtonItem) {
+        self.navigationItem.leftBarButtonItem = darkModeButton
+        navigationController?.overrideUserInterfaceStyle = .light
     }
 
+    @objc func switchToDarkMode(sender: UIBarButtonItem) {
+        self.navigationItem.leftBarButtonItem = lightModeButton
+        navigationController?.overrideUserInterfaceStyle = .dark
+    }
 
-    // MARK: UICollectionViewDataSource
+    func toggleInterfaceSwitch() {
+        let lightImage = UIImage(systemName: "lightbulb")
+        let darkImage = UIImage(systemName: "lightbulb.slash")
+
+        self.lightModeButton = UIBarButtonItem(image: lightImage,
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(switchToLightMode(sender:)))
+
+        self.darkModeButton = UIBarButtonItem(image: darkImage,
+                                              style: .plain,
+                                              target: self,
+                                              action: #selector(switchToDarkMode(sender:)))
+
+        self.navigationItem.leftBarButtonItem = darkModeButton
+    }
+
+    // MARK: - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
