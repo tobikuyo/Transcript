@@ -46,11 +46,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="CATEGORIES" id="pl8-w5-Rw3">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="P2h-FY-0GH">
-                            <connections>
-                                <action selector="toggleBarButton:" destination="ten-wk-5xr" id="FOf-VH-Ppc"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="BACK" id="38N-CJ-olq"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nTS-Ef-JId">
                             <connections>
                                 <segue destination="88O-wP-Zew" kind="show" identifier="AddScriptSegue" id="0Ad-B9-hgJ"/>
@@ -211,7 +207,6 @@
                         <viewLayoutGuide key="safeArea" id="oIB-hU-PpQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="2Pl-j2-Q7V">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="goC-rt-ylv"/>
                         <barButtonItem key="rightBarButtonItem" title="SAVE" id="SWo-9J-QyH">
                             <connections>
                                 <action selector="saveTranscript:" destination="88O-wP-Zew" id="aXH-Cp-6Xe"/>
@@ -363,10 +358,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="17" name="Caudex-Regular"/>
+                                            <font key="NSFont" size="15" name="Caudex-Regular"/>
                                             <font key="NSOriginalFont" size="16" name="Caudex-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -399,6 +394,23 @@
                                     <action selector="saveTranscript:" destination="wJf-x7-CxR" eventType="touchUpInside" id="Ct0-PK-dDQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y97-RO-AG0">
+                                <rect key="frame" x="20" y="54" width="30" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="bxc-Ob-giG"/>
+                                    <constraint firstAttribute="height" constant="34" id="jpG-Wf-y9d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Caudex" family="Caudex" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="left-arrow">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="wTD-PG-M2C" eventType="touchUpInside" id="50D-u6-dMY"/>
+                                    <action selector="backButtonTapped:" destination="2Mr-gW-tzb" eventType="touchUpInside" id="Ohc-c5-Amx"/>
+                                    <action selector="backButtonTapped:" destination="wJf-x7-CxR" eventType="touchUpInside" id="awW-8F-Eil"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -409,10 +421,12 @@
                             <constraint firstItem="TOv-OI-teo" firstAttribute="top" secondItem="bWs-qp-LDv" secondAttribute="top" constant="13" id="8n4-xj-6TX"/>
                             <constraint firstItem="cWA-L9-l43" firstAttribute="leading" secondItem="bWs-qp-LDv" secondAttribute="leading" constant="20" id="BSt-mt-SU6"/>
                             <constraint firstItem="N3F-6K-54f" firstAttribute="leading" secondItem="bWs-qp-LDv" secondAttribute="leading" constant="20" id="CcN-U0-LEz"/>
+                            <constraint firstItem="y97-RO-AG0" firstAttribute="top" secondItem="bWs-qp-LDv" secondAttribute="top" constant="10" id="Ola-wz-D6Z"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="trailing" secondItem="TOv-OI-teo" secondAttribute="trailing" constant="20" id="T0g-g6-quf"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="trailing" secondItem="N3F-6K-54f" secondAttribute="trailing" constant="20" id="YJJ-TI-jLM"/>
                             <constraint firstItem="bWs-qp-LDv" firstAttribute="bottom" secondItem="hnO-PU-4b7" secondAttribute="bottom" constant="100" id="k9r-8Q-pwX"/>
                             <constraint firstItem="hnO-PU-4b7" firstAttribute="leading" secondItem="bWs-qp-LDv" secondAttribute="leading" constant="20" id="ooS-70-dKL"/>
+                            <constraint firstItem="y97-RO-AG0" firstAttribute="leading" secondItem="bWs-qp-LDv" secondAttribute="leading" constant="20" id="qdR-G7-B84"/>
                             <constraint firstItem="N3F-6K-54f" firstAttribute="top" secondItem="cWA-L9-l43" secondAttribute="bottom" constant="20" id="u8L-YP-4Nq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bWs-qp-LDv"/>
@@ -421,6 +435,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vYM-lp-9Q4"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="y97-RO-AG0" id="zNg-KP-AQV"/>
                         <outlet property="categoryTextField" destination="N3F-6K-54f" id="EgZ-Q8-EKv"/>
                         <outlet property="titleTextField" destination="cWA-L9-l43" id="Mlr-oZ-orR"/>
                         <outlet property="transcriptTextView" destination="hnO-PU-4b7" id="9J9-Ci-xQW"/>
@@ -431,9 +446,11 @@
             <point key="canvasLocation" x="3055" y="-6"/>
         </scene>
     </scenes>
+    <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
     <resources>
         <image name="arrows" width="512" height="512"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="left-arrow" width="512" height="512"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>

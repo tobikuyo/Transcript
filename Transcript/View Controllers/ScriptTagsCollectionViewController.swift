@@ -23,6 +23,10 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleInterfaceSwitch()
+        checkInterfaceStyle()
+
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,11 +39,15 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
     @objc func switchToLightMode(sender: UIBarButtonItem) {
         self.navigationItem.leftBarButtonItem = darkModeButton
         navigationController?.overrideUserInterfaceStyle = .light
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationController?.navigationBar.tintColor = .black
     }
 
     @objc func switchToDarkMode(sender: UIBarButtonItem) {
         self.navigationItem.leftBarButtonItem = lightModeButton
         navigationController?.overrideUserInterfaceStyle = .dark
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
     }
 
     func toggleInterfaceSwitch() {
@@ -55,8 +63,18 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
                                               style: .plain,
                                               target: self,
                                               action: #selector(switchToDarkMode(sender:)))
+    }
 
-        self.navigationItem.leftBarButtonItem = darkModeButton
+    func checkInterfaceStyle() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            navigationItem.rightBarButtonItem?.tintColor = .white
+            navigationController?.navigationBar.tintColor = .white
+            self.navigationItem.leftBarButtonItem = lightModeButton
+        } else {
+            navigationItem.rightBarButtonItem?.tintColor = .black
+            navigationController?.navigationBar.tintColor = .black
+            self.navigationItem.leftBarButtonItem = darkModeButton
+        }
     }
 
     // MARK: - UICollectionViewDataSource
@@ -101,5 +119,12 @@ extension ScriptTagsCollectionViewController: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = CGSize (width: collectionView.frame.width * 0.43, height: collectionView.frame.height * 0.27)
         return size
+    }
+}
+
+
+extension ScriptTagsCollectionViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

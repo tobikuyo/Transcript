@@ -52,7 +52,7 @@ class SciptDetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +91,7 @@ class SciptDetailViewController: UIViewController {
         backgroundImage.image = UIImage(named: "\(category)Background")
         backgroundImage.contentMode = .scaleAspectFill
         transcriptTextView.text = transcript.text
-        transcriptTextView.font = UIFont(name: "Caudex", size: 18)
+        transcriptTextView.font = UIFont(name: "Caudex", size: 16)
         transcriptTextView.textColor = .label
         transcriptTextView.isEditable = false
         

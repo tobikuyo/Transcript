@@ -12,6 +12,7 @@ class EditScriptViewController: UIViewController {
 
     // MARK: - IBOutlets
 
+    @IBOutlet var backButton: UIButton!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var categoryTextField: UITextField!
     @IBOutlet var transcriptTextView: UITextView!
@@ -40,6 +41,7 @@ class EditScriptViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        checkInterfaceStyle()
         createCategoryPicker()
         createTapGesture()
     }
@@ -79,14 +81,22 @@ class EditScriptViewController: UIViewController {
         titleTextField.textColor = .label
         categoryTextField.textColor = .label
         transcriptTextView.textColor = .label
-        titleTextField.font = UIFont(name: "Play-Regular", size: 16)
-        categoryTextField.font = UIFont(name: "Play-Regular", size: 16)
-        transcriptTextView.font = UIFont(name: "Play-Regular", size: 16)
+        titleTextField.font = UIFont(name: "Play-Regular", size: 18)
+        categoryTextField.font = UIFont(name: "Play-Regular", size: 18)
+        transcriptTextView.font = UIFont(name: "Play-Regular", size: 17)
         transcriptTextView.isEditable = true
 
         titleTextField.text = transcript.transcriptTitle
         categoryTextField.text = transcript.category
         transcriptTextView.text = transcript.text
+    }
+
+    private func checkInterfaceStyle() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            backButton.setImage(UIImage(named: "arrows"), for: .normal)
+        } else {
+            backButton.setImage(UIImage(named: "left-arrow"), for: .normal)
+        }
     }
 
     private func createCategoryPicker() {

@@ -18,7 +18,6 @@ class TranscriptController {
                           text: String,
                           category: TranscriptCategory,
                           recordingURL: URL) {
-
         let transcript = TranscriptModel(transcriptTitle: title, text: text, category: category, recordingURL: recordingURL)
 
         transcripts.append(transcript)

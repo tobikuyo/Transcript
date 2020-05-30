@@ -140,28 +140,37 @@ class RecordingViewController: UIViewController {
         titleTextField.textColor = .label
         categoryTextField.textColor = .label
         transcriptTextView.textColor = .label
-        titleTextField.font = UIFont(name: "Play-Regular", size: 16)
-        categoryTextField.font = UIFont(name: "Play-Regular", size: 16)
-        transcriptTextView.font = UIFont(name: "Play-Regular", size: 16)
+        titleTextField.font = UIFont(name: "Play-Regular", size: 18)
+        categoryTextField.font = UIFont(name: "Play-Regular", size: 18)
+        transcriptTextView.font = UIFont(name: "Play-Regular", size: 17)
         transcriptTextView.text = "(Go ahead, I'm listening)"
     }
 
     private func missingPropertiesAlert() {
         let title = titleTextField.text
         let category = categoryTextField.text
+        let transcript = transcriptTextView.text
         
-        if title == nil && category == nil {
+        if title?.count == 0 && category?.count == 0 {
             let alert = UIAlertController(title: "Missing Title and Category", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        } else if title == nil {
+        } else if title?.count == 0 {
             let alert = UIAlertController(title: "Missing Title", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        } else if category == nil {
+        } else if category?.count == 0 {
             let alert = UIAlertController(title: "Missing Category", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
+        } else if transcript?.count == 0 || transcript == "(Go ahead, I'm listening)" {
+            let alert = UIAlertController(title: "Missing Transcript", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true) {
+                if self.transcriptTextView.text == "" {
+                    self.transcriptTextView.text = "(Go ahead, I'm listening)"
+                }
+            }
         }
     }
 
