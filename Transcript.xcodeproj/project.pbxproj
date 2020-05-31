@@ -15,7 +15,7 @@
 		2C868EAD247DCF560045D1AA /* ScriptTagsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EAC247DCF560045D1AA /* ScriptTagsCollectionViewController.swift */; };
 		2C868EB0247DD06B0045D1AA /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EAF247DD06B0045D1AA /* Identifier.swift */; };
 		2C868EB2247DD2360045D1AA /* ScriptTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB1247DD2360045D1AA /* ScriptTagCollectionViewCell.swift */; };
-		2C868EB4247DD2F50045D1AA /* ScriptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */; };
+		2C868EB4247DD2F50045D1AA /* ScriptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB3247DD2F50045D1AA /* ScriptsViewController.swift */; };
 		2C868EB6247DD3DE0045D1AA /* SciptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */; };
 		2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */; };
 		2C92B77E2480815800795D61 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C92B77B2480815700795D61 /* Oswald-Medium.ttf */; };
@@ -33,6 +33,8 @@
 		2CAEB8AB247EBB19009C5DC7 /* TranscriptModel+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AA247EBB19009C5DC7 /* TranscriptModel+Convenience.swift */; };
 		2CAEB8AD247EBC25009C5DC7 /* TranscriptCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AC247EBC25009C5DC7 /* TranscriptCategory.swift */; };
 		2CAEB8AF247EC219009C5DC7 /* TranscriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AE247EC219009C5DC7 /* TranscriptController.swift */; };
+		2CF1E0CA2483F7CE005CB105 /* ScriptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1E0C92483F7CE005CB105 /* ScriptsTableViewController.swift */; };
+		2CF1E0CC248406E6005CB105 /* ScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1E0CB248406E6005CB105 /* ScriptTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +48,7 @@
 		2C868EAC247DCF560045D1AA /* ScriptTagsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTagsCollectionViewController.swift; sourceTree = "<group>"; };
 		2C868EAF247DD06B0045D1AA /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		2C868EB1247DD2360045D1AA /* ScriptTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableViewController.swift; sourceTree = "<group>"; };
+		2C868EB3247DD2F50045D1AA /* ScriptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsViewController.swift; sourceTree = "<group>"; };
 		2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciptDetailViewController.swift; sourceTree = "<group>"; };
 		2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		2C92B77B2480815700795D61 /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
@@ -64,6 +66,8 @@
 		2CAEB8AA247EBB19009C5DC7 /* TranscriptModel+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranscriptModel+Convenience.swift"; sourceTree = "<group>"; };
 		2CAEB8AC247EBC25009C5DC7 /* TranscriptCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptCategory.swift; sourceTree = "<group>"; };
 		2CAEB8AE247EC219009C5DC7 /* TranscriptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptController.swift; sourceTree = "<group>"; };
+		2CF1E0C92483F7CE005CB105 /* ScriptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableViewController.swift; sourceTree = "<group>"; };
+		2CF1E0CB248406E6005CB105 /* ScriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				2C868EAC247DCF560045D1AA /* ScriptTagsCollectionViewController.swift */,
-				2C868EB3247DD2F50045D1AA /* ScriptsTableViewController.swift */,
+				2C868EB3247DD2F50045D1AA /* ScriptsViewController.swift */,
+				2CF1E0C92483F7CE005CB105 /* ScriptsTableViewController.swift */,
 				2C868EB5247DD3DE0045D1AA /* SciptDetailViewController.swift */,
 				2C868EB7247DE4CD0045D1AA /* RecordingViewController.swift */,
 				2C92B78524816BCD00795D61 /* EditScriptViewController.swift */,
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				2C868EB1247DD2360045D1AA /* ScriptTagCollectionViewCell.swift */,
+				2CF1E0CB248406E6005CB105 /* ScriptTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,12 +277,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C868EB2247DD2360045D1AA /* ScriptTagCollectionViewCell.swift in Sources */,
-				2C868EB4247DD2F50045D1AA /* ScriptsTableViewController.swift in Sources */,
+				2C868EB4247DD2F50045D1AA /* ScriptsViewController.swift in Sources */,
 				2CAEB8AB247EBB19009C5DC7 /* TranscriptModel+Convenience.swift in Sources */,
 				2C868E92247DC37B0045D1AA /* AppDelegate.swift in Sources */,
+				2CF1E0CA2483F7CE005CB105 /* ScriptsTableViewController.swift in Sources */,
 				2C868EAD247DCF560045D1AA /* ScriptTagsCollectionViewController.swift in Sources */,
 				2CA3ECFE24818FB000C9E023 /* TranscriptPDF.swift in Sources */,
 				2C868EB8247DE4CD0045D1AA /* RecordingViewController.swift in Sources */,
+				2CF1E0CC248406E6005CB105 /* ScriptTableViewCell.swift in Sources */,
 				2C92B78624816BCE00795D61 /* EditScriptViewController.swift in Sources */,
 				2CAEB8A9247EBA47009C5DC7 /* CoreDataStack.swift in Sources */,
 				2C868EB0247DD06B0045D1AA /* Identifier.swift in Sources */,

@@ -20,12 +20,7 @@ class SciptDetailViewController: UIViewController {
     
     let transcript: TranscriptModel
     let transcriptController: TranscriptController
-    
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "d MMMM yyyy"
-        return formatter
-    }
+    let dateFormatter: DateFormatter
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -33,9 +28,12 @@ class SciptDetailViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init?(coder: NSCoder, transcript: TranscriptModel, transcriptController: TranscriptController) {
+    init?(coder: NSCoder, transcript: TranscriptModel,
+          transcriptController: TranscriptController,
+          dateFormatter: DateFormatter) {
         self.transcript = transcript
         self.transcriptController = transcriptController
+        self.dateFormatter = dateFormatter
         super.init(coder: coder)
     }
     
@@ -119,8 +117,9 @@ class SciptDetailViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
         
-        let dateLabel = UILabel()
         guard let date = transcript.dateCreated else { return }
+
+        let dateLabel = UILabel()
         dateLabel.text = dateFormatter.string(from: date).uppercased()
         dateLabel.textAlignment = .center
         dateLabel.textColor = .white
