@@ -9,13 +9,11 @@
 import UIKit
 import CoreData
 
-protocol ScriptCountDelegate {
-    func updateCount(with count: Int)
-}
-
 class ScriptsTableViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+
+    // MARK: - Properties
 
     var transcriptController: TranscriptController?
     var category: TranscriptCategory?

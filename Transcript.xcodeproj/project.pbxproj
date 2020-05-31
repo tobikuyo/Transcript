@@ -35,6 +35,7 @@
 		2CAEB8AF247EC219009C5DC7 /* TranscriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB8AE247EC219009C5DC7 /* TranscriptController.swift */; };
 		2CF1E0CA2483F7CE005CB105 /* ScriptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1E0C92483F7CE005CB105 /* ScriptsTableViewController.swift */; };
 		2CF1E0CC248406E6005CB105 /* ScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1E0CB248406E6005CB105 /* ScriptTableViewCell.swift */; };
+		2CF1E0CE24841F0A005CB105 /* ScriptCountDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1E0CD24841F09005CB105 /* ScriptCountDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		2CAEB8AE247EC219009C5DC7 /* TranscriptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptController.swift; sourceTree = "<group>"; };
 		2CF1E0C92483F7CE005CB105 /* ScriptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableViewController.swift; sourceTree = "<group>"; };
 		2CF1E0CB248406E6005CB105 /* ScriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTableViewCell.swift; sourceTree = "<group>"; };
+		2CF1E0CD24841F09005CB105 /* ScriptCountDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptCountDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				2C868EAF247DD06B0045D1AA /* Identifier.swift */,
 				2CAEB8AC247EBC25009C5DC7 /* TranscriptCategory.swift */,
 				2CA3ECFD24818FB000C9E023 /* TranscriptPDF.swift */,
+				2CF1E0CD24841F09005CB105 /* ScriptCountDelegate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				2CAEB8AF247EC219009C5DC7 /* TranscriptController.swift in Sources */,
 				2C868E94247DC37B0045D1AA /* SceneDelegate.swift in Sources */,
 				2CAEB8AD247EBC25009C5DC7 /* TranscriptCategory.swift in Sources */,
+				2CF1E0CE24841F0A005CB105 /* ScriptCountDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

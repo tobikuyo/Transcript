@@ -122,7 +122,6 @@ extension ScriptTagsCollectionViewController: UICollectionViewDelegateFlowLayout
     }
 }
 
-
 extension ScriptTagsCollectionViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
