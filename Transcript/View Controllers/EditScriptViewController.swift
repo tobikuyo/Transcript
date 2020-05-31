@@ -16,6 +16,7 @@ class EditScriptViewController: UIViewController {
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var categoryTextField: UITextField!
     @IBOutlet var transcriptTextView: UITextView!
+    @IBOutlet var scrollView: UIScrollView!
 
     // MARK: - Properties
 
@@ -44,16 +45,20 @@ class EditScriptViewController: UIViewController {
         checkInterfaceStyle()
         createCategoryPicker()
         createTapGesture()
+
+        titleTextField.delegate = self
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        addObservers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        removeObservers()
     }
 
     // MARK: - IBActions
@@ -114,6 +119,35 @@ class EditScriptViewController: UIViewController {
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+
+    private func addObservers() {
+         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { notification in
+             self.keyboardWillShow(notification: notification)
+         }
+
+         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { notification in
+             self.keyboardWillHide(notification: notification)
+         }
+     }
+
+     private func removeObservers() {
+         NotificationCenter.default.removeObserver(self)
+     }
+
+     @objc func keyboardWillShow(notification: Notification) {
+         guard
+             let userInfo = notification.userInfo,
+             let frame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+                 return
+         }
+
+         let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
+         scrollView?.contentInset = contentInset
+     }
+
+     @objc func keyboardWillHide(notification: Notification) {
+         scrollView?.contentInset = UIEdgeInsets.zero
+     }
 }
 
 extension EditScriptViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -149,5 +183,11 @@ extension EditScriptViewController: UIPickerViewDelegate, UIPickerViewDataSource
 
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40
+    }
+}
+
+extension EditScriptViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }
