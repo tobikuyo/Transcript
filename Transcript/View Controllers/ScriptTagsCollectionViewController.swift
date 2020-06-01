@@ -84,7 +84,8 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.tagCell, for: indexPath) as? ScriptTagCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.tagCell,
+                                                            for: indexPath) as? ScriptTagCollectionViewCell else {
             return UICollectionViewCell()
         }
 
@@ -117,7 +118,7 @@ class ScriptTagsCollectionViewController: UICollectionViewController {
 
 extension ScriptTagsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize (width: collectionView.frame.width * 0.43, height: collectionView.frame.height * 0.27)
+        let size = CGSize(width: collectionView.frame.width * 0.43, height: collectionView.frame.height * 0.27)
         return size
     }
 }

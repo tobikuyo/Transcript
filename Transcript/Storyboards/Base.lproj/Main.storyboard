@@ -302,7 +302,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLs-jD-qCW">
-                                <rect key="frame" x="134" y="410.5" width="146" height="30"/>
+                                <rect key="frame" x="134" y="404" width="146" height="30"/>
                                 <state key="normal" title="TAP HERE TO SHARE"/>
                                 <connections>
                                     <action selector="shareButtonTapped:" destination="2Mr-gW-tzb" eventType="touchUpInside" id="hcj-jo-IgV"/>
@@ -313,7 +313,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="lQP-tg-ujm" secondAttribute="bottom" id="05B-3r-8TJ"/>
                             <constraint firstItem="kiv-O1-6Tk" firstAttribute="top" secondItem="UdP-hS-Qc0" secondAttribute="top" constant="13" id="0XT-mO-bjP"/>
-                            <constraint firstItem="lQP-tg-ujm" firstAttribute="top" secondItem="wLs-jD-qCW" secondAttribute="bottom" constant="11.5" id="BM8-cl-cKv"/>
+                            <constraint firstItem="lQP-tg-ujm" firstAttribute="top" secondItem="wLs-jD-qCW" secondAttribute="bottom" constant="18" id="BM8-cl-cKv"/>
                             <constraint firstItem="vf1-dh-klw" firstAttribute="leading" secondItem="UdP-hS-Qc0" secondAttribute="leading" id="DVb-7e-FXr"/>
                             <constraint firstItem="lQP-tg-ujm" firstAttribute="height" secondItem="vf1-dh-klw" secondAttribute="height" multiplier="0.992027" id="EUi-Ha-XpL"/>
                             <constraint firstItem="mNA-FR-Y6y" firstAttribute="leading" secondItem="UdP-hS-Qc0" secondAttribute="leading" constant="20" id="KF0-9j-PuB"/>
@@ -515,12 +515,12 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="Bjy-5B-c2g"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Play-Regular" family="Play" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Play-Regular" family="Play" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcD-jU-Zoj">
-                                                    <rect key="frame" x="20" y="35" width="355" height="11"/>
+                                                    <rect key="frame" x="20" y="38" width="355" height="8"/>
                                                     <fontDescription key="fontDescription" name="Play-Regular" family="Play" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -532,7 +532,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="BcD-jU-Zoj" secondAttribute="bottom" constant="3" id="G2Y-ep-Ngb"/>
                                                 <constraint firstItem="TQR-n9-0Cy" firstAttribute="leading" secondItem="RdI-Qr-dQq" secondAttribute="leadingMargin" id="ct3-vx-3dM"/>
                                                 <constraint firstItem="TQR-n9-0Cy" firstAttribute="top" secondItem="RdI-Qr-dQq" secondAttribute="topMargin" id="fCQ-jp-GHm"/>
-                                                <constraint firstItem="BcD-jU-Zoj" firstAttribute="top" secondItem="TQR-n9-0Cy" secondAttribute="bottom" constant="5" id="gnT-Nw-4XV"/>
+                                                <constraint firstItem="BcD-jU-Zoj" firstAttribute="top" secondItem="TQR-n9-0Cy" secondAttribute="bottom" constant="8" id="gnT-Nw-4XV"/>
                                                 <constraint firstItem="TQR-n9-0Cy" firstAttribute="trailing" secondItem="RdI-Qr-dQq" secondAttribute="trailingMargin" id="vai-ma-lG7"/>
                                             </constraints>
                                         </tableViewCellContentView>

@@ -73,6 +73,7 @@ class TranscriptPDF {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .natural
         paragraphStyle.lineBreakMode = .byWordWrapping
+        paragraphStyle.lineSpacing = 8
 
         let textAttributes = [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,

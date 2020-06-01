@@ -80,7 +80,7 @@ class RecordingViewController: UIViewController {
             stopSpeechRecognition()
             transcriptTextView.isEditable = true
 
-            if transcriptTextView.text == "" {
+            if transcriptTextView.text.isEmpty {
                 transcriptTextView.text = "(Go ahead, I'm listening)"
                 transcriptTextView.isEditable = false
                 transcriptTextView.isSelectable = false
@@ -166,27 +166,28 @@ class RecordingViewController: UIViewController {
     }
 
     private func missingPropertiesAlert() {
-        let title = titleTextField.text
-        let category = categoryTextField.text
-        let transcript = transcriptTextView.text
+        guard
+            let title = titleTextField.text,
+            let category = categoryTextField.text,
+            let transcript = transcriptTextView.text else { return }
         
-        if title?.count == 0 && category?.count == 0 {
+        if title.isEmpty && category.isEmpty {
             let alert = UIAlertController(title: "Missing Title and Category", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        } else if title?.count == 0 {
+        } else if title.isEmpty {
             let alert = UIAlertController(title: "Missing Title", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        } else if category?.count == 0 {
+        } else if category.isEmpty {
             let alert = UIAlertController(title: "Missing Category", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        } else if transcript?.count == 0 || transcript == "(Go ahead, I'm listening)" {
+        } else if transcript.isEmpty || transcript == "(Go ahead, I'm listening)" {
             let alert = UIAlertController(title: "Missing Transcript", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true) {
-                if self.transcriptTextView.text == "" {
+                if self.transcriptTextView.text.isEmpty {
                     self.transcriptTextView.text = "(Go ahead, I'm listening)"
                 }
             }
@@ -280,7 +281,7 @@ extension RecordingViewController: UIPickerViewDelegate, UIPickerViewDataSource 
         let category = categories[row].rawValue
 
         let label = UILabel()
-        label.font = UIFont (name: "Play-Regular", size: 23)
+        label.font = UIFont(name: "Play-Regular", size: 23)
         label.textAlignment = .center
         label.text = category.capitalized
 

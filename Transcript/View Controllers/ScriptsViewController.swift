@@ -20,7 +20,7 @@ class ScriptsViewController: UIViewController {
 
     let category: TranscriptCategory
     let transcriptController: TranscriptController
-    let scriptCountLabel = UILabel()
+    var scriptCountLabel: UILabel!
 
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -78,7 +78,7 @@ class ScriptsViewController: UIViewController {
         backgroundImage.addSubview(darkView)
 
         NSLayoutConstraint.activate([
-            darkView.topAnchor.constraint(equalTo:backgroundImage.topAnchor),
+            darkView.topAnchor.constraint(equalTo: backgroundImage.topAnchor),
             darkView.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor),
             darkView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor),
             darkView.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor)
@@ -94,6 +94,7 @@ class ScriptsViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
 
+        scriptCountLabel = UILabel()
         scriptCountLabel.textAlignment = .center
         scriptCountLabel.textColor = .white
         scriptCountLabel.font = UIFont(name: "Play-Regular", size: 12)

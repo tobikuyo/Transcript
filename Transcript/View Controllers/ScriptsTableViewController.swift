@@ -17,8 +17,8 @@ class ScriptsTableViewController: UIViewController {
 
     var transcriptController: TranscriptController?
     var category: TranscriptCategory?
-    var delegate: ScriptCountDelegate?
     var dateFormatter: DateFormatter?
+    weak var delegate: ScriptCountDelegate?
 
     lazy var fetchedResultsController: NSFetchedResultsController<TranscriptModel> = {
         let fetchRequest: NSFetchRequest<TranscriptModel> = TranscriptModel.fetchRequest()
@@ -86,8 +86,7 @@ extension ScriptsTableViewController: UITableViewDelegate, UITableViewDataSource
             return SciptDetailViewController(coder: coder,
                                              transcript: transcript,
                                              transcriptController: transcriptController,
-                                             dateFormatter: dateFormatter)
-        }) else { return }
+                                             dateFormatter: dateFormatter)}) else { return }
 
         tableView.deselectRow(at: indexPath, animated: true)
 

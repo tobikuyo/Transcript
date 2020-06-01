@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ScriptCountDelegate {
+protocol ScriptCountDelegate: class {
     func updateCount(with count: Int)
 }

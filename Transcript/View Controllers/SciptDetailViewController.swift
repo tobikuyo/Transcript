@@ -100,7 +100,7 @@ class SciptDetailViewController: UIViewController {
         backgroundImage.addSubview(darkView)
         
         NSLayoutConstraint.activate([
-            darkView.topAnchor.constraint(equalTo:backgroundImage.topAnchor),
+            darkView.topAnchor.constraint(equalTo: backgroundImage.topAnchor),
             darkView.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor),
             darkView.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: 2),
             darkView.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor)

@@ -174,7 +174,7 @@ extension EditScriptViewController: UIPickerViewDelegate, UIPickerViewDataSource
         let category = categories[row].rawValue
 
         let label = UILabel()
-        label.font = UIFont (name: "Play-Regular", size: 23)
+        label.font = UIFont(name: "Play-Regular", size: 23)
         label.textAlignment = .center
         label.text =  category.capitalized
 
