@@ -76,6 +76,7 @@ class SciptDetailViewController: UIViewController {
         guard
             let title = transcript.transcriptTitle,
             let text = transcript.text else { return }
+
         let transcriptPDF = TranscriptPDF(title: title, text: text)
         let data = transcriptPDF.createTranscript()
         let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: [])
@@ -117,6 +118,12 @@ class SciptDetailViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
         
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            titleLabel.centerYAnchor.constraint(equalTo: darkView.centerYAnchor)
+        ])
+
         guard let date = transcript.dateCreated else { return }
 
         let dateLabel = UILabel()
@@ -127,16 +134,13 @@ class SciptDetailViewController: UIViewController {
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(dateLabel)
 
-        shareButton.tintColor = .white
-        shareButton.titleLabel?.font = UIFont(name: "Play-Regular", size: 12)
-        shareButton.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            titleLabel.centerYAnchor.constraint(equalTo: darkView.centerYAnchor),
             dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             dateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+
+        shareButton.tintColor = .white
+        shareButton.titleLabel?.font = UIFont(name: "Play-Regular", size: 12)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }

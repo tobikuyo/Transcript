@@ -18,6 +18,7 @@ class ScriptsTableViewController: UIViewController {
     var transcriptController: TranscriptController?
     var category: TranscriptCategory?
     var dateFormatter: DateFormatter?
+
     weak var delegate: ScriptCountDelegate?
 
     lazy var fetchedResultsController: NSFetchedResultsController<TranscriptModel> = {
