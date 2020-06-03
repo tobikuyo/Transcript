@@ -9,7 +9,7 @@
 import UIKit
 import Speech
 
-class RecordingViewController: UIViewController {
+class RecordingViewController: ShiftableViewController {
 
     // MARK: - IBOutlets
 
@@ -40,16 +40,8 @@ class RecordingViewController: UIViewController {
         createTapGesture()
 
         titleTextField.delegate = self
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addObservers()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeObservers()
+        categoryTextField.delegate = self
+        transcriptTextView.delegate = self
     }
 
     // MARK: - IBActions
@@ -208,42 +200,6 @@ class RecordingViewController: UIViewController {
 
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
-    }
-
-    private func addObservers() {
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { notification in
-            self.keyboardWillShow(notification: notification)
-        }
-
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { notification in
-            self.keyboardWillHide(notification: notification)
-        }
-    }
-
-    private func removeObservers() {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    @objc func keyboardWillShow(notification: Notification) {
-        guard
-            let userInfo = notification.userInfo,
-            let frame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-                return
-        }
-
-        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
-        scrollView?.contentInset = contentInset
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        scrollView?.contentInset = UIEdgeInsets.zero
-    }
-}
-
-extension RecordingViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
 
