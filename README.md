@@ -1,6 +1,6 @@
 # Transcript
 
-Fun app that turns a live audio recording, into transcrripted text.
+Fun app that turns a live audio recording, into a text transcription.
 
 ### Technologies Used:
 
