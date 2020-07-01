@@ -15,6 +15,7 @@ Fun app that turns a live audio recording, into transcrripted text.
 * Organise transcripts into relevant categories.
 * Share transcripts as a PDF document.
 * Supports iOS13 light and dark modes.
+<br/>
 
 <img src="homeLight.png" width="400"> <img src="homeDark.png" width="400">
 <img src="recordLight.png" width="400"> <img src="recordDark.png" width="400">
