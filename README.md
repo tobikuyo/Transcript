@@ -18,7 +18,7 @@ Fun app that turns a live audio recording, into a text transcription.
 
 ### Screenshots:
 
-<img src="homeLight.png" width="200"> <img src="recordLight.png" width="200">
-<img src="homeDark.png" width="200"> <img src="recordDark.png" width="200">
+<img src="homeVCLight.PNG" width="200"> <img src="recodingLight.PNG" width="200">
 <img src="transcriptsLight.PNG" width="200"> <img src="postLight.PNG" width="200">
+<img src="homeVCDark.PNG" width="200"> <img src="recordingDark.PNG" width="200">
 <img src="transcriptsDark.PNG" width="200"> <img src="postDark.PNG" width="200">
